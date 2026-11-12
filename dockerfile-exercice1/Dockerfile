@@ -18,7 +18,7 @@ RUN npm install &&\
  rm -fr node_modules
 
 # Exposer le port
-EXPOSE 8080
+EXPOSE 8088
 
 # Démarrer l'application 
 CMD ["serve", "-s", "build"]
