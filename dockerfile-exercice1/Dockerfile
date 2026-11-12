@@ -1,5 +1,5 @@
 # Utiliser une image de base Node.js légère
-FROM node:18-alpine
+FROM node:jod-alpine3.24
 
 # Définir le répertoire de travail de l'application
 WORKDIR /app
