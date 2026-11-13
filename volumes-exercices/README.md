@@ -55,6 +55,7 @@ L'emplacement on le voit avec la propriété Mountpoint et le type sur Driver
    ```
 
 5. **Question** : Le fichier est-il toujours présent ? Pourquoi ?
+Parce qu'il est présent dans le système hôte donc le contenu persiste.
 
 ---
 
@@ -79,6 +80,7 @@ L'emplacement on le voit avec la propriété Mountpoint et le type sur Driver
    ```
 
 4. **Question** : Pourquoi est-il important de supprimer les volumes non utilisés dans un environnement Docker ?
+Ça prend en ressources et en place sur le pc hôte
 
 ---
 
@@ -104,6 +106,7 @@ L'emplacement on le voit avec la propriété Mountpoint et le type sur Driver
    ```
 
 5. **Question** : Que constatez-vous concernant l'accès aux données du volume depuis l'hôte et le conteneur ?
+L'hôte et le conteneur ont accès au même endroit
 
 ---
 
@@ -132,6 +135,8 @@ L'emplacement on le voit avec la propriété Mountpoint et le type sur Driver
    ```
 
 5. **Question** : Qu’arrive-t-il aux données stockées dans le volume après sa suppression ? Pourquoi est-il important de comprendre cette opération ?
+
+Ils n'existent plus, c'est pour ça qu'il faut faire attention quand on supprime un volume les données qu'il y a dedans sont non existant.
 
 ---
 
