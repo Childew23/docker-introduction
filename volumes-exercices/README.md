@@ -26,6 +26,8 @@ Bienvenue dans cette série d'exercices sur l'utilisation des volumes Docker. Ce
 
 4. **Question** : Que remarquez-vous dans les détails affichés par `docker volume inspect` ? Quels éléments indiquent l’emplacement et le type de volume ?
 
+L'emplacement on le voit avec la propriété Mountpoint et le type sur Driver
+
 ---
 
 ## Exercice 2 : Utilisation de Volume avec un Conteneur
