@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)file:///C:/Users/Childew/AppData/Local/Temp/crossnote-f-fd4282d0d41e98cf7f5e32e7bf98.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>audit-initial-cves</title>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+      <link rel="stylesheet" href="./audit-initial-cves_files/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview pre[data-line]{position:relative;padding:1em 0 1em 3em!important}.markdown-preview pre[data-line]>code{position:relative;z-index:1}.markdown-preview pre[data-line] .line-numbers-rows{z-index:1}.markdown-preview pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;pointer-events:none;display:block;width:100%}.markdown-preview pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:var(--line-highlight-background,linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0)));line-height:inherit;white-space:pre}.markdown-preview pre[data-line] .line-highlight:before,.markdown-preview pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none}.markdown-preview pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-details{margin:0;padding:0;border:none}.markdown-preview .md-toc ol.md-toc-ol{margin:0;padding-left:1.6em}.markdown-preview .md-toc summary.md-toc-link-wrapper{cursor:pointer;list-style-position:outside}.markdown-preview .md-toc summary.md-toc-link-wrapper::marker{font-size:.85em}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='0']{margin-left:12px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='1']{margin-left:28px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='2']{margin-left:44px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='3']{margin-left:60px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='4']{margin-left:76px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='5']{margin-left:80px}.markdown-preview a.tag,.markdown-preview a.tag:active,.markdown-preview a.tag:link,.markdown-preview a.tag:visited,.markdown-preview span.tag:not(.token){display:inline-block;background-color:var(--vscode-badge-background,rgba(127,127,127,.18));color:var(--vscode-badge-foreground,currentColor);border-radius:2em;font-size:.85em;font-weight:500;padding:.05em .55em;line-height:1.5;white-space:nowrap;text-decoration:none;text-shadow:none;box-shadow:none;transition:background-color .12s ease,opacity .12s ease}.markdown-preview a.tag{cursor:pointer}.markdown-preview a.tag:focus,.markdown-preview a.tag:hover{background-color:var(--vscode-badge-background,rgba(127,127,127,.32));color:var(--vscode-badge-foreground,currentColor);opacity:.85;text-decoration:none;outline:0}.markdown-preview .wikilink-embed-content{border-left:3px solid var(--vscode-textBlockQuote-border,rgba(128,128,128,.3));background:var(--vscode-textBlockQuote-background,rgba(128,128,128,.05));margin:.5em 0;padding:.5em .75em;border-radius:0 3px 3px 0}.markdown-preview .wikilink-embed-content.wikilink-embed-error{border-left-color:var(--vscode-errorForeground,#cf222e);color:var(--vscode-errorForeground,#cf222e);font-style:italic;opacity:.8}.markdown-preview .wikilink-embed-content h1:first-child,.markdown-preview .wikilink-embed-content h2:first-child,.markdown-preview .wikilink-embed-content h3:first-child,.markdown-preview .wikilink-embed-content h4:first-child,.markdown-preview .wikilink-embed-content h5:first-child,.markdown-preview .wikilink-embed-content h6:first-child{margin-top:.25em}.markdown-preview .wikilink-embed-content .wikilink-embed-content{margin:.25em 0;padding:.25em .5em}.markdown-preview .block-id{display:none}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));border:4px solid var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));background-clip:content-box}.scrollbar-style::-webkit-scrollbar-thumb:hover{background-color:var(--vscode-scrollbarSlider-hoverBackground,rgba(120,120,120,.66))}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));border:4px solid var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb:hover{background-color:var(--vscode-scrollbarSlider-hoverBackground,rgba(120,120,120,.66))}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-details{margin:0;padding:0;border:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc ol.md-toc-ol{margin:0;padding-left:1.6em}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='0']{padding-left:0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='1']{padding-left:16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='2']{padding-left:32px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='3']{padding-left:48px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='4']{padding-left:64px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='5']{padding-left:80px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h2>:mag: Vulnerabilities of <code>quiz-docker:initial</code></h2>
+<details open="true"><summary>:package: Image Reference <code>quiz-docker:initial</code></summary>
+<table>
+<tbody><tr><td>digest</td><td><code>sha256:0626f6547f25e4a8663a4e75207e88c424aab34c28b73668164c23e42637199c</code></td></tr><tr></tr><tr><td>vulnerabilities</td><td><img alt="critical: 1" src="./audit-initial-cves_files/critical-1-8b1924"> <img alt="high: 11" src="./audit-initial-cves_files/high-11-e25d68"> <img alt="medium: 12" src="./audit-initial-cves_files/medium-12-fbb552"> <img alt="low: 1" src="./audit-initial-cves_files/low-1-fce1a9"> <img alt="unspecified: 5" src="./audit-initial-cves_files/unspecified-5-lightgrey"></td></tr>
+<tr><td>platform</td><td>linux/amd64</td></tr>
+<tr><td>size</td><td>72 MB</td></tr>
+<tr><td>packages</td><td>266</td></tr>
+</tbody></table>
+</details>
+
+<table>
+<tbody><tr><td valign="top">
+<details><summary><img alt="critical: 1" src="./audit-initial-cves_files/C-1-8b1924"> <img alt="high: 0" src="./audit-initial-cves_files/H-0-lightgrey"> <img alt="medium: 0" src="./audit-initial-cves_files/M-0-lightgrey"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>zlib</strong> <code>1.3.2-r1</code> (apk)</summary>
+<p><small><code>pkg:apk/alpine/zlib@1.3.2-r1?os_name=alpine&amp;os_version=3.24</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-4738?s=alpine&amp;n=zlib&amp;ns=alpine&amp;t=apk&amp;osn=alpine&amp;osv=3.24&amp;vr=%3C1.4-r0"><img alt="critical : CVE--2026--4738" src="./audit-initial-cves_files/CVE--2026--4738-lightgrey"></a></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;1.4-r0</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.4-r0</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.269%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>19th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 5" src="./audit-initial-cves_files/H-5-e25d68"> <img alt="medium: 2" src="./audit-initial-cves_files/M-2-fbb552"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>brace-expansion</strong> <code>2.0.2</code> (npm)</summary>
+<p><small><code>pkg:npm/brace-expansion@2.0.2</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-13149?s=github&amp;n=brace-expansion&amp;t=npm&amp;vr=%3E%3D2.0.0%2C%3C2.1.2"><img alt="high 7.7: CVE--2026--13149" src="./audit-initial-cves_files/CVE--2026--13149-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=2.0.0<br>&lt;2.1.2</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.1.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P/S:N/AU:Y/R:U/V:D/RE:M/U:Amber</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.364%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary">Summary </h3>
+<p>brace-expansion's expand() exhibits exponential-time - O(2ⁿ) - behavior in the number of consecutive non-expanding {} groups. A short, all-ASCII input (~90 bytes/30 groups) blocks the calling thread for minutes; a slightly longer input hangs it effectively indefinitely. Because the dominant consumers run on Node's single-threaded event loop, one small input can fully stall a worker/process.</p>
+<p>In <code>expand_</code>, <code>post</code> is computed unconditionally at the top of the function, before the early-return branches that don't use it:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> post <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token property-access">post</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">?</span> <span class="token function">expand_</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token property-access">post</span><span class="token punctuation">,</span> max<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment">// always recurses</span>
+  <span class="token spread operator">...</span>
+<span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isSequence <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>isOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token property-access">post</span><span class="token punctuation">.</span><span class="token method function property-access">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">,(?!,).*\}</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    str <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token property-access">pre</span> <span class="token operator">+</span> <span class="token string">'{'</span> <span class="token operator">+</span> m<span class="token punctuation">.</span><span class="token property-access">body</span> <span class="token operator">+</span> escClose <span class="token operator">+</span> m<span class="token punctuation">.</span><span class="token property-access">post</span><span class="token punctuation">;</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token function">expand_</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> max<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// restart — `post` discarded</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>For input like a{},{},…, the first {} is non-expanding, so control reaches the {a},b} rewrite branch - but <code>expand_</code> has already recursed into post over the entire remaining tail, only to throw the result away.<br>
+Each level therefore spawns two recursive expansions over essentially the same remaining work: <code>T(n) = 2·T(n−1) ⇒ O(2ⁿ)</code>.</p>
+<p>The max option does not mitigate this: max only bounds the output-building loops; neither the post recursion nor the rewrite recursion consults it.</p>
+<p>Measured on 5.0.6:</p>
+<table>
+<thead>
+<tr>
+<th>groups (n)</th>
+<th>input bytes</th>
+<th>time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>60</td>
+<td>130 ms</td>
+</tr>
+<tr>
+<td>24</td>
+<td>72</td>
+<td>1.9 s</td>
+</tr>
+<tr>
+<td>26</td>
+<td>78</td>
+<td>7.8 s</td>
+</tr>
+<tr>
+<td>30 (PoC)</td>
+<td>90</td>
+<td>~2 min</td>
+</tr>
+</tbody>
+</table>
+<h3 id="proof-of-concept">Proof of concept </h3>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> expand <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'brace-expansion'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 30 non-expanding groups, ~90 bytes — blocks for minutes:</span>
+<span class="token function">expand</span><span class="token punctuation">(</span><span class="token string">'a{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="impact">Impact </h3>
+<p>Any application that passes attacker-influenced strings to brace-expansion.expand() - directly or transitively via minimatch/glob brace patterns - can be driven into a multi-minute-to-indefinite CPU hang by a tiny request, denying service on that thread/process.</p>
+<h3 id="remediation">Remediation </h3>
+<p>Upgrade to a patched release. The fix:</p>
+<ol>
+<li>Defers computing post until after the early-return branches (and computes it locally in the $-suffix branch), so post is only expanded when a brace set actually expands and the value is used. This alone removes the exponential.</li>
+<li>Converts the {a},b} rewrite from recursion to an in-function loop, so a long run of rewrites cannot grow the call stack.</li>
+</ol>
+<p>Verified: the PoC drops from ~2 min to 0.55 ms, 5,000 groups complete in ~344 ms, and output is identical to 5.0.6 across a behavioral-equivalence suite (sequences, padding, $-prefix, a{},b}c, {},a}b, x{{a,b}}y, etc.). Post-fix complexity is ~O(n²) on this input class - acceptable for the security fix; a linear rewrite can be a non-urgent follow-up.</p>
+<p>If immediate upgrade isn't possible, avoid passing untrusted input to expand() / glob brace patterns, or run such expansion under a timeout/worker.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-69152?s=github&amp;n=brace-expansion&amp;t=npm&amp;vr=%3E%3D2.0.0%2C%3C2.1.4"><img alt="high 7.5: CVE--2026--69152" src="./audit-initial-cves_files/CVE--2026--69152-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=2.0.0<br>&lt;2.1.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.1.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.647%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>52nd percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-1">Summary </h3>
+<p>The <code>maxLength</code> mitigation added in <code>5.0.8</code> for GHSA-mh99-v99m-4gvg / CVE-2026-14257 is incomplete. It bounds the accumulator where results are <em>combined</em>, but not the intermediate arrays that feed it. A ~25 KB input still crashes the Node process with an <strong>uncatchable</strong> out-of-memory error, so <code>try/catch</code> around <code>expand()</code> does not help.</p>
+<p>A second, related path in the same function lets a ~400 KB input block the event loop for over two minutes without ever exceeding the memory bound.</p>
+<h3 id="details">Details </h3>
+<p><code>maxLength</code> was enforced in <code>combine()</code>, the single place output grows. Two arrays are built <em>before</em> <code>combine()</code> runs, and neither was bounded.</p>
+<p><strong>1. Comma alternatives accumulate without a running total (memory exhaustion)</strong></p>
+<p>Each alternative in <code>{a,b,c,...}</code> is expanded by its own recursive <code>expand_()</code> call, so each receives a full, independent <code>maxLength</code> allowance. The results were then concatenated into a single <code>values</code> array with no cumulative limit:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code>values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  values<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span>values<span class="token punctuation">,</span> <span class="token function">expand_</span><span class="token punctuation">(</span>n<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> max<span class="token punctuation">,</span> maxLength<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+acc <span class="token operator">=</span> <span class="token function">combine</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> pre<span class="token punctuation">,</span> values<span class="token punctuation">,</span> max<span class="token punctuation">,</span> maxLength<span class="token punctuation">,</span> <span class="token spread operator">...</span><span class="token punctuation">)</span>
+</code></pre><p>With <code>A</code> alternatives, <code>values</code> can reach <code>A * maxLength</code> characters before <code>combine()</code> gets a chance to truncate it. At the default <code>maxLength</code> of 4,000,000 and 400 alternatives, that is well past any default heap.</p>
+<p><strong>2. Padded sequences ignore <code>maxLength</code> while generating (CPU exhaustion)</strong></p>
+<p><code>expandSequence()</code> was bounded by <code>max</code> (the result <em>count</em>) but never consulted <code>maxLength</code>. A padded sequence's element width follows the input, so <code>{0...01..100000}</code> with a wide pad generates <code>max</code> elements, each as wide as the input, only for <code>combine()</code> to discard all but a handful.</p>
+<p>Memory stays flat here, because V8 represents the padded strings as cons-strings, which is likely why this path was not caught alongside the original issue. The cost is time: work proportional to <code>max * width</code>.</p>
+<table>
+<thead>
+<tr>
+<th>pad width</th>
+<th>input bytes</th>
+<th>results kept</th>
+<th>time (5.0.8)</th>
+<th>time (patched)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20,000</td>
+<td>20 KB</td>
+<td>199</td>
+<td>~7.3 s</td>
+<td>~20 ms</td>
+</tr>
+<tr>
+<td>100,000</td>
+<td>100 KB</td>
+<td>39</td>
+<td>~32 s</td>
+<td>~20 ms</td>
+</tr>
+<tr>
+<td>400,000</td>
+<td>400 KB</td>
+<td>9</td>
+<td>~124 s</td>
+<td>~18 ms</td>
+</tr>
+</tbody>
+</table>
+<p>Output is byte-identical before and after the fix; only the wasted work is removed.</p>
+<h3 id="proof-of-concept-1">Proof of concept </h3>
+<p>Memory exhaustion, against <code>5.0.8</code>:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> expand <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">'brace-expansion'</span>
+
+<span class="token keyword keyword-const">const</span> part <span class="token operator">=</span> <span class="token string">'{'</span> <span class="token operator">+</span> <span class="token string">'0'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'1..100000}'</span>
+<span class="token keyword keyword-const">const</span> input <span class="token operator">=</span> <span class="token string">'{'</span> <span class="token operator">+</span> <span class="token known-class-name class-name">Array</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">fill</span><span class="token punctuation">(</span>part<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">join</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'}'</span>  <span class="token comment">// ~25 KB</span>
+
+<span class="token keyword control-flow keyword-try">try</span> <span class="token punctuation">{</span>
+  <span class="token function">expand</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-catch">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// never reached - the process is already dead</span>
+<span class="token punctuation">}</span>
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+Aborted
+</code></pre><p>Event-loop stall, against <code>5.0.8</code>:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> expand <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">'brace-expansion'</span>
+
+<span class="token comment">// ~400 KB input, returns 9 results after roughly two minutes of blocking CPU</span>
+<span class="token function">expand</span><span class="token punctuation">(</span><span class="token string">'{'</span> <span class="token operator">+</span> <span class="token string">'0'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">400_000</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'1..100000}'</span><span class="token punctuation">)</span>
+</code></pre><h3 id="impact-1">Impact </h3>
+<p>Denial of service. Any application that passes attacker-controlled input to <code>expand()</code>, directly or transitively through a glob or pattern-matching library, can be remotely crashed or stalled. The out-of-memory variant terminates the process and cannot be handled with <code>try/catch</code>.</p>
+<p>Applications already on <code>5.0.8</code> are affected: the <code>5.0.8</code> mitigation does not cover these paths.</p>
+<h3 id="patches">Patches </h3>
+<p>Both intermediate arrays are now bounded as they are built, using the same <code>max</code> and <code>maxLength</code> limits already applied in <code>combine()</code>:</p>
+<ul>
+<li><code>values</code> tracks a running result count and character length while alternatives are appended, and stops once either bound is reached.</li>
+<li><code>expandSequence()</code> accepts <code>maxLength</code> and stops generating once the sequence's own characters reach it.</li>
+</ul>
+<p>As with the existing limits, output is truncated rather than allowed to grow without bound, which matches how <code>max</code> already behaves. The defaults sit well above any realistic expansion, so legitimate input is unaffected.</p>
+<h3 id="workarounds">Workarounds </h3>
+<p>If upgrading is not immediately possible, avoid passing untrusted input to <code>expand()</code> or to glob brace patterns, or pass an explicitly small <code>max</code> <strong>and</strong> <code>maxLength</code>.</p>
+<p>Note that a small <code>maxLength</code> alone was not sufficient on affected versions: it was applied per alternative rather than cumulatively, which is the root of the first issue above.</p>
+<h3 id="credits">Credits </h3>
+<p>The memory-exhaustion bypass was reported by Alessio Della Libera, CEO &amp; Co-founder at <a href="https://numyra.ai/">Numyra</a>.</p>
+<p>The sequence-generation issue was found while verifying that report.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-14257?s=github&amp;n=brace-expansion&amp;t=npm&amp;vr=%3E%3D2.0.0%2C%3C2.1.3"><img alt="high 7.5: CVE--2026--14257" src="./audit-initial-cves_files/CVE--2026--14257-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=2.0.0<br>&lt;2.1.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.0.8</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.643%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>51st percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-2">Summary </h3>
+<p><code>expand()</code> bounds the <em>number</em> of results it produces (the <code>max</code> option,<br>
+<code>100_000</code> by default) but not their <em>length</em>. By chaining many brace groups,<br>
+an attacker keeps the result count under <code>max</code> while making every result grow<br>
+with the number of groups. Building <code>max</code> long results — plus the intermediate<br>
+arrays combined at each brace group — exhausts memory and crashes the Node<br>
+process with an <strong>uncatchable</strong> out-of-memory error. <code>try/catch</code> around<br>
+<code>expand()</code> does not help: the fatal error terminates the process.</p>
+<p>A ~7.5 KB input (<code>'{a,b}'.repeat(1500)</code>) is enough to crash a default Node<br>
+process.</p>
+<h3 id="details-1">Details </h3>
+<p>For <code>N</code> chained brace groups such as <code>'{a,b}'.repeat(N)</code>:</p>
+<ul>
+<li>the result count is <code>2^N</code>, immediately capped at <code>max</code> (<code>100_000</code>), so the<br>
+<code>max</code> protection appears to hold, but</li>
+<li>each result is <code>N</code> characters long, so the total output size is<br>
+<code>max × N</code> characters, which grows without bound in <code>N</code>.</li>
+</ul>
+<p><code>expand_</code> combines each brace set with the fully-expanded tail:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> post <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token property-access">post</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">?</span> <span class="token function">expand_</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token property-access">post</span><span class="token punctuation">,</span> max<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">''</span><span class="token punctuation">]</span>
+<span class="token spread operator">...</span>
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token constant">N</span><span class="token punctuation">.</span><span class="token property-access">length</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> post<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&amp;&amp;</span> expansions<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&lt;</span> max<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> expansion <span class="token operator">=</span> pre <span class="token operator">+</span> <span class="token constant">N</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> post<span class="token punctuation">[</span>k<span class="token punctuation">]</span>   <span class="token comment">// grows one group longer per level</span>
+    <span class="token spread operator">...</span>
+    expansions<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>expansion<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>The loop guard <code>expansions.length &lt; max</code> limits how many strings are built, but<br>
+nothing limits how long they get. Each recursion level materializes another<br>
+array of up to <code>max</code> strings, one character longer than the level below, and —<br>
+because V8 represents <code>pre + N[j] + post[k]</code> as a cons-string (rope) that<br>
+references <code>post[k]</code> — those intermediate strings stay reachable through the<br>
+whole chain. Memory therefore scales with <code>max × N</code>.</p>
+<p>Measured on <code>5.0.7</code> (<code>'{a,b}'.repeat(N)</code>, default <code>max</code>):</p>
+<table>
+<thead>
+<tr>
+<th>groups (N)</th>
+<th>input bytes</th>
+<th>result count</th>
+<th>peak RSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>100</td>
+<td>100,000</td>
+<td>~80 MB</td>
+</tr>
+<tr>
+<td>50</td>
+<td>250</td>
+<td>100,000</td>
+<td>~214 MB</td>
+</tr>
+<tr>
+<td>100</td>
+<td>500</td>
+<td>100,000</td>
+<td>~409 MB</td>
+</tr>
+<tr>
+<td>300</td>
+<td>1,500</td>
+<td>100,000</td>
+<td>~1,148 MB</td>
+</tr>
+<tr>
+<td>1500</td>
+<td>7,500</td>
+<td>—</td>
+<td><strong>OOM crash</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="proof-of-concept-2">Proof of concept </h3>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> expand <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'brace-expansion'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// ~7.5 KB input — crashes the process with a fatal, uncatchable OOM:</span>
+<span class="token comment">//   FATAL ERROR: ... JavaScript heap out of memory</span>
+<span class="token keyword control-flow keyword-try">try</span> <span class="token punctuation">{</span>
+  <span class="token function">expand</span><span class="token punctuation">(</span><span class="token string">'{a,b}'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-catch">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// never reached — the process is already dead</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="impact-2">Impact </h3>
+<p>Any application that passes attacker-influenced strings to<br>
+<code>brace-expansion.expand()</code> — directly, or transitively via <code>minimatch</code> / <code>glob</code><br>
+brace patterns — can be crashed by a small request. Because the failure is a<br>
+fatal V8 out-of-memory error rather than a thrown exception, it cannot be caught<br>
+and it takes down the whole worker/process, denying service.</p>
+<h3 id="remediation-1">Remediation </h3>
+<p>Upgrade to a patched release. The fix bounds the total number of characters a<br>
+single <code>expand()</code> call may accumulate (<code>EXPANSION_MAX_LENGTH</code>, default<br>
+<code>4_000_000</code>, configurable via a new <code>maxLength</code> option), applied inside the<br>
+output-building loops so intermediate arrays are bounded too. Once the limit is<br>
+reached, output is truncated — consistent with how <code>max</code> already truncates —<br>
+instead of growing without bound. The limit sits well above any realistic<br>
+expansion (100,000 results hitting <code>max</code> measure ~1M characters), so legitimate<br>
+input is unaffected.</p>
+<p>After the fix, <code>'{a,b}'.repeat(1500)</code> returns a bounded, truncated result in<br>
+~0.7 s using ~340 MB and never crashes, including under a constrained 512 MB<br>
+heap.</p>
+<p>The fix bounds memory but the algorithm still rebuilds intermediate arrays at<br>
+each level (roughly <code>O(N × maxLength)</code> work on this input class). A streaming<br>
+rewrite that produces output in <code>O(total output size)</code> can be a non-urgent<br>
+follow-up.</p>
+<p>If immediate upgrade isn't possible, avoid passing untrusted input to<br>
+<code>expand()</code> / glob brace patterns, or pass a small explicit <code>max</code> <strong>and</strong><br>
+<code>maxLength</code>.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-102278?s=github&amp;n=brace-expansion&amp;t=npm&amp;vr=%3E%3D2.0.0%2C%3C2.1.6"><img alt="high 7.5: CVE--2026--102278" src="./audit-initial-cves_files/CVE--2026--102278-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=2.0.0<br>&lt;2.1.6</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.1.6</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.491%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>43rd percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-3">Summary </h3>
+<p><code>expand_()</code> recurses once per level of brace <em>nesting</em>. Deeply nested input exhausts the native stack and crashes the process.</p>
+<p>This is distinct from CVE-2026-14257 / GHSA-mh99-v99m-4gvg, which made the <em>tail</em> iterative (recursion on <code>m.post</code>, driven by how many groups are chained). Nesting depth drives a different recursion that the tail fix never touched, so the documented constant-stack-depth guarantee only ever covered chained input, not nested input.</p>
+<p>It is also distinct from GHSA-6j4f-fj2g-mc7p, which fixed recursion in <code>parseCommaParts()</code>. Both payloads below still crash with that fix applied.</p>
+<h3 id="two-recursion-sites">Two recursion sites </h3>
+<p><strong>Comma members.</strong> Each alternative of a brace set is expanded by a recursive call, so nesting a set inside every alternative recurses once per level:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token function">expand</span><span class="token punctuation">(</span><span class="token string">'{a,'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'z'</span> <span class="token operator">+</span> <span class="token string">'}'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">// RangeError: Maximum call stack size exceeded</span>
+</code></pre><p>Crashes at depth 3,907 - about <strong>15.6 KB</strong> of input.</p>
+<p><strong>Single set.</strong> A brace set whose body parses to a single part is expanded by a recursive call before being re-wrapped (<code>x{{a,b}}y</code> -&gt; <code>x{a}y x{b}y</code>), which recurses once per nesting level:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token function">expand</span><span class="token punctuation">(</span><span class="token string">'{'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">3200</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'a,b'</span> <span class="token operator">+</span> <span class="token string">'}'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">3200</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">// RangeError: Maximum call stack size exceeded</span>
+</code></pre><p>Crashes at depth 3,125 - about <strong>6.25 KB</strong> of input. This is the cheapest stack-exhaustion payload known against this package: roughly a quarter the input of GHSA-6j4f-fj2g-mc7p (29 KB), and about a tenth of minimatch's <code>MAX_PATTERN_LENGTH</code> (65,536).</p>
+<h3 id="why-max-and-maxlength-do-not-help">Why <code>max</code> and <code>maxLength</code> do not help </h3>
+<p>Both crashes happen while recursing into sub-expansions, before the result set grows. The payloads produce almost no output - the single-set case yields 2 results - so neither bound is ever the limiter. <code>expand(payload, { max: 1, maxLength: 1 })</code> still overflows.</p>
+<h3 id="impact-3">Impact </h3>
+<p>Any application passing an untrusted string to <code>expand()</code>, directly or through <code>minimatch</code> / <code>glob</code> as a user-supplied glob pattern, can be crashed. In Node a <code>RangeError</code> the application does not catch terminates the process, so a server globbing user input is exposed to remote unauthenticated denial of service.</p>
+<p>Availability only. No code execution, no data exposure.</p>
+<h3 id="affected-versions">Affected versions </h3>
+<p>Verified affected on 1.1.18, 2.1.4, 3.0.6 and 5.0.9, at near-identical depths on every line (single set: 3,125 on all four; comma members: 3,907-4,102). Not a regression from any recent fix - the gap predates them.</p>
+<h3 id="patch">Patch </h3>
+<p>A <code>maxDepth</code> bound (default <code>EXPANSION_MAX_DEPTH</code>) is threaded through <code>expand_()</code>. Past the cap a group is treated as non-expanding and returned literally, which is how the parser already handles a group that cannot expand. This matches the existing <code>max</code> / <code>maxLength</code> caps, which truncate rather than throw, so <code>expand()</code> continues never to throw on any input.</p>
+<p>The default sits far above any realistic nesting depth and well below the crash threshold.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-102276?s=github&amp;n=brace-expansion&amp;t=npm&amp;vr=%3E%3D2.0.0%2C%3C2.1.5"><img alt="high 7.5: CVE--2026--102276" src="./audit-initial-cves_files/CVE--2026--102276-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=2.0.0<br>&lt;2.1.5</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.1.5</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.455%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-4">Summary </h3>
+<p><code>parseCommaParts()</code> can exhaust the native stack and crash the process. There are two distinct ways to trigger it, both reachable from a single untrusted pattern string.</p>
+<p>This is the parsing-side counterpart to CVE-2026-14257 / GHSA-mh99-v99m-4gvg. That fix made <code>expand_()</code> iterative and documented a constant-stack-depth guarantee, but <code>parseCommaParts()</code> was left recursive, so the guarantee only held for one of the two parsing paths.</p>
+<h3 id="vector-1---unbounded-recursion-on-post">Vector 1 - unbounded recursion on <code>post</code> </h3>
+<p><code>parseCommaParts()</code> recursed on the remainder of the string once per brace group:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> postParts <span class="token operator">=</span> <span class="token function">parseCommaParts</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span>   <span class="token comment">// unbounded</span>
+</code></pre><p>A brace group containing many comma-separated groups drives one recursion level per group:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token function">expand</span><span class="token punctuation">(</span><span class="token string">'{'</span> <span class="token operator">+</span> <span class="token string">'{a},'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">7000</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'b}'</span><span class="token punctuation">)</span>
+<span class="token comment">// RangeError: Maximum call stack size exceeded</span>
+</code></pre><p>About 7,300 repetitions - roughly 29 KB of input - is enough on Node 24; roughly 6,300 (25 KB) on Node 18. The threshold is identical on every affected release line.</p>
+<h3 id="vector-2---pushapply-with-an-unbounded-array">Vector 2 - <code>push.apply</code> with an unbounded array </h3>
+<p>Even with the recursion removed, <code>parseCommaParts()</code> spread whole arrays into an argument list:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code>p<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> postParts<span class="token punctuation">)</span>
+parts<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span>parts<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
+</code></pre><p><code>Function.prototype.apply</code> places one argument per element on the stack, so a single large array overflows it. This needs <strong>no recursion depth at all</strong> - the following reaches a recursion depth of exactly 1:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token function">expand</span><span class="token punctuation">(</span><span class="token string">'{{x},'</span> <span class="token operator">+</span> <span class="token string">'a,'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">125000</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'b}'</span><span class="token punctuation">)</span>
+<span class="token comment">// RangeError: Maximum call stack size exceeded</span>
+</code></pre><p>Threshold is about 124,300 repetitions (~249 KB). This vector was not part of the original report; it was found while verifying the fix. A patch that only de-recurses but keeps <code>push.apply</code> leaves a working denial of service behind.</p>
+<h3 id="why-max-and-maxlength-do-not-help-1">Why <code>max</code> and <code>maxLength</code> do not help </h3>
+<p>Both crashes happen during <strong>parsing</strong>, before any expansion. The payloads produce one result per group, so output size grows linearly with input and is never the limiter. <code>expand(payload, { max: 1, maxLength: 1 })</code> still overflows.</p>
+<h3 id="impact-4">Impact </h3>
+<p>Any application that passes an untrusted string to <code>expand()</code> - directly, or through <code>minimatch</code> / <code>glob</code> where it is a user-supplied glob pattern - can be crashed. In Node, a <code>RangeError</code> that the application does not catch terminates the process, so a server that globs user input is exposed to remote unauthenticated denial of service.</p>
+<p><code>minimatch</code>'s own <code>MAX_PATTERN_LENGTH</code> cap (65,536) does not help against vector 1: the overflow threshold sits well below it. Confirmed on minimatch 10.2.6 - a 64,003-byte pattern passes the length check and overflows both <code>minimatch.braceExpand()</code> and <code>new minimatch.Minimatch()</code>.</p>
+<p>This is an availability-only issue. No code execution and no data exposure.</p>
+<h3 id="not-a-regression">Not a regression </h3>
+<p>5.0.8 and 5.0.9 overflow at the same repetition count, so the gap predates the recent advisories; those fixes simply did not reach it. Verified affected on 1.1.18, 2.1.4, 3.0.6, 5.0.8 and 5.0.9, all at an identical threshold.</p>
+<h3 id="patch-1">Patch </h3>
+<p><code>parseCommaParts()</code> is rewritten as a loop that carries the partial part across chunks, and every array append uses an element-by-element loop rather than <code>push.apply</code>. The redundant <code>if (!str) return ['']</code> guard is dropped - the loop returns <code>['']</code> for the empty string on its own.</p>
+<p>Equivalence of the old and new implementations was checked by differential testing: exhaustive over every string of <code>{</code>, <code>}</code>, <code>,</code>, <code>a</code> up to length 7 plus 300,000 random inputs - 322,000 cases, zero mismatches.</p>
+<h3 id="severity-note">Severity note </h3>
+<p>Scored 7.5 High under CVSS 3.1 for consistency with the other availability advisories on this package (GHSA-mh99-v99m-4gvg, GHSA-rgw5-rvv9-x895), which use the same vector. The reporter self-assessed 6.9 Medium under CVSS 4.0 (<code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N</code>).</p>
+<h3 id="credit">Credit </h3>
+<p>Reported by baeseungwon1010, with a working proof of concept and a proposed patch. Vector 2 was identified during maintainer verification.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-33750?s=github&amp;n=brace-expansion&amp;t=npm&amp;vr=%3E%3D2.0.0%2C%3C2.0.3"><img alt="medium 6.5: CVE--2026--33750" src="./audit-initial-cves_files/CVE--2026--33750-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=2.0.0<br>&lt;2.0.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>5.0.5</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.457%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>40th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="impact-5">Impact </h3>
+<p>A brace pattern with a zero step value (e.g., <code>{1..2..0}</code>) causes the sequence generation loop to run indefinitely, making the process hang for seconds and allocate heaps of memory.</p>
+<p>The loop in question:</p>
+<p><a href="https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L184">https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L184</a></p>
+<p><code>test()</code> is one of</p>
+<p><a href="https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L107-L113">https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L107-L113</a></p>
+<p>The increment is computed as <code>Math.abs(0) = 0</code>, so the loop variable never advances. On a test machine, the process hangs for about 3.5 seconds and allocates roughly 1.9 GB of memory before throwing a <code>RangeError</code>. Setting max to any value has no effect because the limit is only checked at the output combination step, not during sequence generation.</p>
+<p>This affects any application that passes untrusted strings to expand(), or by error sets a step value of <code>0</code>. That includes tools built on minimatch/glob that resolve patterns from CLI arguments or config files. The input needed is just 10 bytes.</p>
+<h3 id="patches-1">Patches </h3>
+<p>Upgrade to versions</p>
+<ul>
+<li>5.0.5+</li>
+</ul>
+<p>A step increment of 0 is now sanitized to 1, which matches bash behavior.</p>
+<h3 id="workarounds-1">Workarounds </h3>
+<p>Sanitize strings passed to <code>expand()</code> to ensure a step value of <code>0</code> is not used.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-102277?s=github&amp;n=brace-expansion&amp;t=npm&amp;vr=%3E%3D2.0.0%2C%3C2.1.7"><img alt="medium 5.3: CVE--2026--102277" src="./audit-initial-cves_files/CVE--2026--102277-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=2.0.0<br>&lt;2.1.7</code></td></tr>
+<tr><td>Fixed version</td><td><code>2.1.7</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.428%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-5">Summary </h3>
+<p>Expanding <code>{a},b}</code>-shaped input takes time quadratic in the number of literal <code>}</code> characters, blocking the event loop.</p>
+<p>Bash preserves a quirk where a brace group followed by a comma set still expands (<code>{a},b}</code>). The parser implements this by rewriting the string and restarting the scan. Each pass absorbs exactly one <code>}</code> and re-scans from the beginning, so <code>n</code> trailing braces cost <code>n</code> full passes.</p>
+<h3 id="reproduction">Reproduction </h3>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token function-variable function">build</span> <span class="token operator">=</span> <span class="token parameter">n</span> <span class="token arrow operator">=&gt;</span> <span class="token string">'{a}'</span> <span class="token operator">+</span> <span class="token string">'}'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">',z}'</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> n <span class="token keyword keyword-of">of</span> <span class="token punctuation">[</span><span class="token number">8000</span><span class="token punctuation">,</span> <span class="token number">16000</span><span class="token punctuation">,</span> <span class="token number">32000</span><span class="token punctuation">,</span> <span class="token number">64000</span><span class="token punctuation">,</span> <span class="token number">128000</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> t <span class="token operator">=</span> <span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">expand</span><span class="token punctuation">(</span><span class="token function">build</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token known-class-name class-name">Date</span><span class="token punctuation">.</span><span class="token method function property-access">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> t <span class="token operator">+</span> <span class="token string">'ms'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><table>
+<thead>
+<tr>
+<th>n</th>
+<th>input</th>
+<th>time</th>
+<th>results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8,000</td>
+<td>8 KB</td>
+<td>110 ms</td>
+<td>2</td>
+</tr>
+<tr>
+<td>16,000</td>
+<td>16 KB</td>
+<td>446 ms</td>
+<td>2</td>
+</tr>
+<tr>
+<td>32,000</td>
+<td>32 KB</td>
+<td>1.7 s</td>
+<td>2</td>
+</tr>
+<tr>
+<td>64,000</td>
+<td>64 KB</td>
+<td>6.9 s</td>
+<td>2</td>
+</tr>
+<tr>
+<td>128,000</td>
+<td>128 KB</td>
+<td><strong>27.7 s</strong></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><code>ms/n^2</code> is flat at ~1.7 and each doubling of <code>n</code> costs exactly 4.0x - quadratic. 128 KB of input blocks the event loop for nearly half a minute to produce two results.</p>
+<h3 id="mechanism">Mechanism </h3>
+<p>Instrumenting the rewrite branch confirms it runs exactly <code>n + 1</code> times, once per literal <code>}</code>, each re-scanning the whole string.</p>
+<p>There is a second multiplier. The rewrite replaces the group's closing <code>}</code> with the internal <code>escClose</code> sentinel, which is <code>'\0CLOSE' + Math.random() + '\0'</code> - about 25 characters. The working string therefore <em>grows</em> by ~25 characters on every pass:</p>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>input length</th>
+<th>final string length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1,000</td>
+<td>1,006</td>
+<td>26,006</td>
+</tr>
+<tr>
+<td>8,000</td>
+<td>8,006</td>
+<td>208,006</td>
+</tr>
+</tbody>
+</table>
+<p>So the input is inflated roughly 26x, and that factor multiplies both the quadratic constant and peak memory. This makes it partly a memory-pressure issue as well as a CPU one.</p>
+<h3 id="why-max-and-maxlength-do-not-help-2">Why <code>max</code> and <code>maxLength</code> do not help </h3>
+<p>The cost is in parsing, before the result set exists. The payload yields 2 results regardless of size, so neither bound is ever reached.</p>
+<h3 id="impact-6">Impact </h3>
+<p>An application passing an untrusted pattern to <code>expand()</code>, directly or through <code>minimatch</code> / <code>glob</code>, can have its event loop blocked for tens of seconds by a payload well under minimatch's 65,536-character cap. For a single-threaded Node server that is a full stall, not just a slow request.</p>
+<p>Degraded availability rather than a crash - the process recovers once the expansion completes.</p>
+<h3 id="affected-versions-1">Affected versions </h3>
+<p>Verified affected on 1.1.18, 2.1.4, 3.0.6 and 5.0.9, all within a few percent of each other (~460-490 ms at n=16,000).</p>
+<h3 id="patch-2">Patch </h3>
+<p>The rewrite loop gets an iteration bound. Past the cap the remaining string is treated as non-expanding and returned literally, consistent with the existing <code>max</code> / <code>maxLength</code> caps, which truncate rather than throw.</p>
+<p>Note this bounds the number of passes, not the cost of each: worst-case work remains proportional to <code>cap x input length</code>. The cap is set low enough that the residual is bounded in practice, and far above what any realistic <code>{a},b}</code> input needs.</p>
+<h3 id="severity-note-1">Severity note </h3>
+<p>Scored 5.3 Medium (<code>A:L</code>) for consistency with GHSA-3jxr-9vmj-r5cp, the other algorithmic-complexity advisory on this package (CWE-407), which uses the same vector. The stack-exhaustion advisories on this package score <code>A:H</code> because they crash the process outright; this one stalls it.</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 1" src="./audit-initial-cves_files/H-1-e25d68"> <img alt="medium: 5" src="./audit-initial-cves_files/M-5-fbb552"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>ip-address</strong> <code>10.1.0</code> (npm)</summary>
+<p><small><code>pkg:npm/ip-address@10.1.0</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-69192?s=github&amp;n=ip-address&amp;t=npm&amp;vr=%3C%3D10.3.0"><img alt="high 7.7: CVE--2026--69192" src="./audit-initial-cves_files/CVE--2026--69192-lightgrey"></a> <i>Improper Input Validation</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=10.3.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>10.3.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:H/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.465%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-6">Summary </h3>
+<p><code>Address4</code> accepts an octet written with a leading zero and decodes it as decimal, while the WHATWG URL host parser, <code>inet_aton</code>, and <code>getaddrinfo</code> all decode a leading zero as octal. The library and the network stack therefore disagree about which host a string names. <code>new Address4('012.0.0.1')</code> reports <code>correctForm()</code> of <code>12.0.0.1</code> and <code>isPrivate()</code> of <code>false</code>, but <code>fetch('http://012.0.0.1/')</code> connects to <code>10.0.0.1</code>.</p>
+<p>An application that builds a network trust-boundary decision on these checks (for example a filter intended to block Server-Side Request Forgery, or SSRF) will classify an internal target as external and allow the request. SSRF is an attack in which a user-supplied address coaxes the server into making a request to an internal destination the user could not otherwise reach, such as a loopback service or a cloud metadata endpoint.</p>
+<h3 id="details-2">Details </h3>
+<p><code>Address4.parse</code> gates untrusted input on <code>RE_ADDRESS</code> (<code>src/v4/constants.ts:5</code>), whose per-octet alternative is:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)
+</code></pre><p>The <code>[01]?[0-9][0-9]?</code> branch matches a leading zero, so <code>012</code> passes validation. Every downstream decode then reads the octet with <code>parseInt(part, 10)</code> (<code>src/common.ts:87</code>), yielding 12. A resolver reading the same string treats the leading <code>0</code> as base 8 and yields 10.</p>
+<p>The defect is in the parse gate rather than in any one classifier, so every consumer of <code>Address4</code> inherits it: <code>isPrivate()</code>, <code>isLoopback()</code>, <code>isLinkLocal()</code>, <code>isCGNAT()</code>, <code>isInSubnet()</code>, <code>isHostInSubnet()</code>, and <code>correctForm()</code> are all computed from the mis-decoded octets.</p>
+<p><code>Address6</code> already rejects this notation on its IPv4-in-IPv6 path, throwing "IPv4 addresses can't have leading zeroes." (<code>src/ipv6.ts:751-762</code>), so <code>Address4</code> is the outlier within the library.</p>
+<h3 id="affected-versions-2">Affected versions </h3>
+<p><code>&lt;= 10.3.0</code>. Unlike GHSA-22jq-vg5j-6vgg and GHSA-4xrf-jv44-h6hh, which were bounded below by the <code>is*</code> classification API introduced in 10.1.1, this defect is in <code>parse</code> and reaches every release: a guard built on <code>isInSubnet()</code> against the RFC 1918 ranges is affected in versions predating that API.</p>
+<h3 id="impact-7">Impact </h3>
+<p>The disagreement runs in both directions. Under-blocking is the security-relevant case; over-blocking is a correctness and availability problem.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th><code>correctForm()</code></th>
+<th>Classified as</th>
+<th>Resolver reaches</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>012.0.0.1</code></td>
+<td><code>12.0.0.1</code></td>
+<td>public</td>
+<td><code>10.0.0.1</code></td>
+<td>internal target allowed</td>
+</tr>
+<tr>
+<td><code>012.012.012.012</code></td>
+<td><code>12.12.12.12</code></td>
+<td>public</td>
+<td><code>10.10.10.10</code></td>
+<td>internal target allowed</td>
+</tr>
+<tr>
+<td><code>010.0.0.1</code></td>
+<td><code>10.0.0.1</code></td>
+<td>private</td>
+<td><code>8.0.0.1</code></td>
+<td>public target blocked</td>
+</tr>
+</tbody>
+</table>
+<p>Reachable targets are those whose leading octet is expressible as a three-character octal literal, which covers the whole of <code>10.0.0.0/8</code> and <code>0.0.0.0/8</code>. A four-character octet such as <code>0177</code> for 127 is rejected by the regex, so loopback is not reachable through this path; see the note on rejection below for why rejection is not the same as safety.</p>
+<h3 id="reachability">Reachability </h3>
+<p>A leading-zero address is a legal URL host, so this is reachable through the ordinary URL path with no unusual application shape required:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-new">new</span> <span class="token class-name">URL</span><span class="token punctuation">(</span><span class="token string">'http://012.0.0.1/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">hostname</span>   <span class="token comment">// '10.0.0.1'</span>
+</code></pre><p>This distinguishes it from GHSA-4xrf-jv44-h6hh, where the <code>/0</code> CIDR suffix could not survive URL parsing and exploitation therefore required an application that accepted a bare suffix-bearing string. Here the attack rides the same code path a normal user-supplied URL takes.</p>
+<h3 id="proof-of-concept-3">Proof of concept </h3>
+<p><code>npm i ip-address@&lt;!-- --&gt;10.3.0</code>, then:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Address4</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ip-address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// A guard of the shape the library documents.</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">isBlocked</span><span class="token punctuation">(</span><span class="token parameter">host</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token maybe-class-name">Address4</span><span class="token punctuation">.</span><span class="token method function property-access">isValid</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address4</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">isPrivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> h <span class="token keyword keyword-of">of</span> <span class="token punctuation">[</span><span class="token string">'10.0.0.1'</span><span class="token punctuation">,</span> <span class="token string">'012.0.0.1'</span><span class="token punctuation">,</span> <span class="token string">'012.012.012.012'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">isBlocked</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'BLOCK'</span> <span class="token operator">:</span> <span class="token string">'ALLOW'</span><span class="token punctuation">,</span> h<span class="token punctuation">,</span>
+              <span class="token string">'-&gt; resolver reaches'</span><span class="token punctuation">,</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">URL</span><span class="token punctuation">(</span><span class="token string">'http://'</span> <span class="token operator">+</span> h <span class="token operator">+</span> <span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">hostname</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>On affected versions:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>BLOCK 10.0.0.1 -&gt; resolver reaches 10.0.0.1
+ALLOW 012.0.0.1 -&gt; resolver reaches 10.0.0.1
+ALLOW 012.012.012.012 -&gt; resolver reaches 10.10.10.10
+</code></pre><p>The literal RFC 1918 address is blocked as expected; the octal-ambiguous spellings of the same destinations are allowed through.</p>
+<h3 id="remediation-2">Remediation </h3>
+<p>Upgrade to the patched release. In the fix, <code>Address4.parse</code> rejects any octet with a leading zero followed by further digits, mirroring the check <code>Address6</code> already applies at <code>src/ipv6.ts:751</code>, and <code>RE_ADDRESS</code> is tightened so those forms no longer appear in the valid corpus. After upgrading, <code>Address4.isValid('012.0.0.1')</code> returns <code>false</code> and the constructor throws <code>AddressError</code>.</p>
+<p>This rejects input that previous releases accepted. An application that deliberately feeds zero-padded addresses such as <code>010.010.010.010</code> from a legacy system must strip the padding before parsing.</p>
+<p>If you cannot upgrade immediately, reject any host whose octets carry a leading zero before you parse it:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>host<span class="token punctuation">.</span><span class="token method function property-access">split</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">octet</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^0\d</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token method function property-access">test</span><span class="token punctuation">(</span>octet<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'ambiguous address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="a-note-on-ssrf-defense">A note on SSRF defense </h3>
+<p>These methods are address classifiers, not a complete SSRF defense. Regardless of this fix, a robust SSRF guard must resolve the hostname and validate the <em>resolved</em> IP against the socket it connects to, and account for DNS rebinding and redirects. Treat these checks as one layer, not the only one.</p>
+<p>One specific pitfall is worth naming, because the fix above does not remove it. <code>Address4.isValid()</code> returning <code>false</code> means "this is not a dotted-quad IPv4 literal"; it does not mean "this is not an address that will reach an internal host". Every one of the following is rejected by <code>isValid()</code> and still resolves to loopback:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>0177.0.0.1    0x7f.0.0.1    0x7f000001    2130706433
+127.1         127.0.1       127.0.0.1.    １２７.0.0.1
+</code></pre><p>A guard shaped <code>if (Address4.isValid(h)) { check() } else { treatAsHostname() }</code> therefore routes all of them past the IP check. Rejecting these is correct behavior for an IPv4 parser and is not changed by this advisory, but a guard must treat "not a valid literal" as a case to resolve and re-check, never as a case to allow.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-111997?s=github&amp;n=ip-address&amp;t=npm&amp;vr=%3C%3D10.7.3"><img alt="medium 6.3: CVE--2026--111997" src="./audit-initial-cves_files/CVE--2026--111997-lightgrey"></a> <i>Inefficient Regular Expression Complexity</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=10.7.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>10.7.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.315%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>25th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-7">Summary </h3>
+<p><code>new Address6()</code> and <code>Address6.isValid()</code> strip a zone identifier with the pattern <code>/%.*$/</code> before they apply the 45-character length limit. When the string holds many <code>%</code> characters followed by a line terminator, the pattern is retried from every <code>%</code> and each attempt scans to the line terminator before failing, so rejecting the string takes time proportional to the square of its length. 10,000 <code>%</code> characters and a newline take 41 ms, 40,000 take 632 ms and 100,000 take 3.9 s of synchronous work. The same strings without the newline are rejected in under a millisecond.</p>
+<p>An application that validates an attacker-supplied string with these methods can be stalled by a single long request. The input is rejected with the correct <code>AddressError</code>; the cost of reaching that rejection is the defect.</p>
+<h3 id="details-3">Details </h3>
+<p>The constructor in <code>src/ipv6.ts</code> removes the CIDR suffix, then the zone, then checks the length of what is left:</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-const">const</span> zone <span class="token operator">=</span> constants6<span class="token punctuation">.</span><span class="token constant">RE_ZONE_STRING</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>zone<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>zone <span class="token operator">=</span> zone<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  address <span class="token operator">=</span> address<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>constants6<span class="token punctuation">.</span><span class="token constant">RE_ZONE_STRING</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-const">const</span> longest <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>groups <span class="token operator">*</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>address<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> longest<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">AddressError</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">IPv6 addresses are at most </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>longest<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> characters.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p><code>RE_ZONE_STRING</code> is <code>/%.*$/</code>. It has no anchor at its start, <code>.</code> does not match a line terminator (<code>\n</code>, <code>\r</code>, U+2028 or U+2029), and without the <code>m</code> flag <code>$</code> matches only at the end of the input. For <code>%</code> repeated N times and then <code>\n</code>, the engine starts a match at the first <code>%</code>, <code>.*</code> consumes the remaining <code>%</code> characters up to the newline, <code>$</code> fails there, and backtracking through every shorter <code>.*</code> fails too. The engine then starts again at the second <code>%</code>, and so on: N starts, each proportional to N. The length limit that follows rejects the string in constant time, after the scan has already run.</p>
+<p>The line terminator need not be last. Any string in which many <code>%</code> characters precede a line terminator behaves the same way.</p>
+<p>Every entry point that passes a caller's string to the <code>Address6</code> constructor is affected: <code>new Address6()</code>, <code>isValid()</code>, both arguments of <code>fromAddressAndMask()</code> and <code>fromAddressAndWildcardMask()</code>, and the prefix argument of <code>fromAddress4Nat64()</code> and <code>toAddress4Nat64()</code>. <code>fromWildcard()</code> rejects a <code>%</code> before it constructs anything, <code>fromURL()</code> admits only hex digits, colons and dots in a host, and <code>fromArpa()</code> checks the nibble grammar first, so those three are unaffected. <code>Address4</code> has no zone and is unaffected.</p>
+<h3 id="affected-versions-3">Affected versions </h3>
+<p><code>&lt;= 10.7.3</code>. The zone pattern has been in the constructor since 1.0.0; 5.9.4, 9.0.5 and 10.7.0 show the same timings as 10.7.3.</p>
+<h3 id="impact-8">Impact </h3>
+<p><code>Address6.isValid()</code> on N <code>%</code> characters and a newline, measured on ip-address 10.7.3 and node 24.21.0:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Wall time</th>
+<th>Same length of <code>!</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5,461 characters</td>
+<td>13 ms</td>
+<td>0.1 ms</td>
+</tr>
+<tr>
+<td>16 KiB</td>
+<td>108 ms</td>
+<td>0.1 ms</td>
+</tr>
+<tr>
+<td>100 KB</td>
+<td>3.9 s</td>
+<td>0.1 ms</td>
+</tr>
+<tr>
+<td>256 KiB</td>
+<td>27 s</td>
+<td>0.2 ms</td>
+</tr>
+</tbody>
+</table>
+<p>The parse is synchronous, so the event loop is blocked for the whole of the wall time and nothing else on that process is served. No memory is retained and the process resumes when the call returns.</p>
+<h3 id="reachability-1">Reachability </h3>
+<p>The input needs a line terminator after the <code>%</code> characters, which decides where it can arrive. An HTTP header value cannot carry a carriage return or a line feed, so a host or address taken from a header does not reach this. A URL can carry both characters percent-encoded at three bytes each, and Node's default 16 KB limit on the request line and headers admits about 5,461 of them: 13 ms. A request body is where the larger sizes come from. Common body parsers default to between 100 KB and 1 MB, and at 100 KB one field passed to the parser unchecked blocks the process for 3.9 s.</p>
+<h3 id="proof-of-concept-4">Proof of concept </h3>
+<p><code>npm i ip-address@&lt;!-- --&gt;10.7.3</code>, then:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Address6</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ip-address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> start <span class="token operator">=</span> process<span class="token punctuation">.</span><span class="token property-access">hrtime</span><span class="token punctuation">.</span><span class="token method function property-access">bigint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token maybe-class-name">Address6</span><span class="token punctuation">.</span><span class="token method function property-access">isValid</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Number</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token property-access">hrtime</span><span class="token punctuation">.</span><span class="token method function property-access">bigint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1e6</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">toFixed</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> n <span class="token keyword keyword-of">of</span> <span class="token punctuation">[</span><span class="token number">10000</span><span class="token punctuation">,</span> <span class="token number">20000</span><span class="token punctuation">,</span> <span class="token number">40000</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>n<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token string">'%'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">\n</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, without the newline </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token string">'%'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>On affected versions (node 24.21.0):</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>10000: 41.0 ms, without the newline 0.0 ms
+20000: 161.1 ms, without the newline 0.0 ms
+40000: 632.4 ms, without the newline 0.1 ms
+100000: 3899.8 ms, without the newline 0.1 ms
+</code></pre><p>Each doubling of the input multiplies the time by four.</p>
+<h3 id="remediation-3">Remediation </h3>
+<p>Upgrade to the patched release. In the fix, the constructor finds the zone by the index of the first <code>%</code> and accepts the remainder as a zone only when it holds no line terminator, which reads the input once. 1 MiB of the input above is rejected in about a millisecond. Every address that parsed before parses to the same result, and a string with a line terminator after a <code>%</code> is rejected as it was.</p>
+<p><code>RE_ZONE_STRING</code> stays exported from <code>v6/constants</code> for code that imports it directly and is marked <code>@&lt;!-- --&gt;deprecated</code>; the library itself does not call it.</p>
+<p>If you cannot upgrade immediately, reject a candidate longer than an address with a zone identifier can be before you parse it:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>host<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&gt;</span> <span class="token number">64</span><span class="token punctuation">)</span> <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'not an IP address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-101913?s=github&amp;n=ip-address&amp;t=npm&amp;vr=%3C%3D10.5.0"><img alt="medium 6.3: CVE--2026--101913" src="./audit-initial-cves_files/CVE--2026--101913-lightgrey"></a> <i>Incorrect Comparison</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=10.5.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>10.5.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:L/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.386%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-8">Summary </h3>
+<p><code>Address6.isLinkLocal()</code> recognizes <code>fe80::/64</code> rather than <code>fe80::/10</code>. Link-local unicast is the whole <code>/10</code> under RFC 4291 §2.4 and the IANA IPv6 Special-Purpose Address Registry, so the method returns <code>false</code> for every link-local address outside the one <code>/64</code> that stateless address autoconfiguration happens to use. <code>new Address6('fe81::1').isLinkLocal()</code> is <code>false</code>.</p>
+<p>The library contradicts itself on the same object: for <code>fe81::1</code>, <code>getType()</code> returns <code>'Link-local unicast'</code>, <code>getScope()</code> returns <code>'Link local'</code>, and <code>isHostInSubnet(new Address6('fe80::/10'))</code> returns <code>true</code>, while <code>isLinkLocal()</code> returns <code>false</code>.</p>
+<p>An application that builds a network trust-boundary decision on these checks (for example a filter intended to block Server-Side Request Forgery, or SSRF) will classify a link-local target as unremarkable and allow the request. SSRF is an attack in which a user-supplied address coaxes the server into making a request to an internal destination the user could not otherwise reach.</p>
+<h3 id="details-4">Details </h3>
+<p><code>isLinkLocal()</code> in <code>src/ipv6.ts</code> compares the first 64 bits of the address against a literal string:</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token comment">// Zeroes are required, i.e. we can't check isHostInSubnet with 'fe80::/10'</span>
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>
+  <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token function">getBitsBase2</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span> <span class="token operator">===</span>
+  <span class="token string">'1111111010000000000000000000000000000000000000000000000000000000'</span>
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-return">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>The comparison requires the first 64 bits to be exactly <code>fe80:0000:0000:0000</code>, so it accepts 2⁶⁴ of the 2¹¹⁸ addresses in <code>fe80::/10</code>. The comment states a premise the library disproves: <code>getType()</code> classifies the same range with <code>isHostInSubnet</code> against the <code>'fe80::/10': 'Link-local unicast'</code> entry in <code>src/v6/constants.ts</code>, and <code>Address4.isLinkLocal()</code> is a plain <code>isHostInSubnet</code> test against <code>169.254.0.0/16</code>. RFC 4291 §2.5.6 constrains the format of an autoconfigured link-local address; it does not define the range, and reading it as the definition is the likeliest origin of the <code>/64</code> comparison.</p>
+<p>The IPv4-mapped and NAT64 well-known paths of <code>isLinkLocal()</code> are unaffected: <code>::ffff:169.254.169.254</code> and <code>64:ff9b::a9fe:a9fe</code> are classified by their embedded IPv4 address and report <code>true</code>.</p>
+<h3 id="affected-versions-4">Affected versions </h3>
+<p><code>&lt;= 10.5.0</code>. The comparison has had this shape since <code>Address6.isLinkLocal()</code> was introduced, so every release exposing the method is affected.</p>
+<h3 id="impact-9">Impact </h3>
+<p>Every well-formed address in <code>fe80::/10</code> outside <code>fe80::/64</code> is parsed successfully, <code>isValid()</code> is <code>true</code>, and the classifier reports something untrue about it. No other classifier catches these addresses: <code>isPrivate()</code> covers ULA (<code>fc00::/7</code>), not link-local.</p>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th><code>isLinkLocal()</code></th>
+<th><code>getType()</code></th>
+<th><code>getScope()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fe80::1</code></td>
+<td><code>true</code></td>
+<td>Link-local unicast</td>
+<td>Link local</td>
+</tr>
+<tr>
+<td><code>fe81::1</code></td>
+<td><code>false</code></td>
+<td>Link-local unicast</td>
+<td>Link local</td>
+</tr>
+<tr>
+<td><code>fe8f::1</code></td>
+<td><code>false</code></td>
+<td>Link-local unicast</td>
+<td>Link local</td>
+</tr>
+<tr>
+<td><code>febf::1</code></td>
+<td><code>false</code></td>
+<td>Link-local unicast</td>
+<td>Link local</td>
+</tr>
+<tr>
+<td><code>fe80:0:0:1::1</code></td>
+<td><code>false</code></td>
+<td>Link-local unicast</td>
+<td>Link local</td>
+</tr>
+<tr>
+<td><code>fe80::1:0:0:0:1</code></td>
+<td><code>false</code></td>
+<td>Link-local unicast</td>
+<td>Link local</td>
+</tr>
+</tbody>
+</table>
+<p>Python's <code>ipaddress</code> module, the <code>IN6_IS_ADDR_LINKLOCAL</code> macro in <code>netinet6/in6.h</code>, and Linux's <code>ipv6_addr_type()</code> all apply a ten-bit prefix test and classify every row above as link-local.</p>
+<p>A request admitted through a guard built on <code>isLinkLocal()</code> reaches a link-local host on the server's own segment: a neighboring machine or the on-link router. An IPv6 link-local destination generally needs a zone index and a neighbor on the same link, so the reach is the server's own segment rather than the internet or a universal metadata endpoint, and the severity reflects that.</p>
+<h3 id="proof-of-concept-5">Proof of concept </h3>
+<p><code>npm i ip-address@&lt;!-- --&gt;10.5.0</code>, then:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Address6</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ip-address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// A guard of the shape the library documents.</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">isBlocked</span><span class="token punctuation">(</span><span class="token parameter">host</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> a <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword control-flow keyword-return">return</span> a<span class="token punctuation">.</span><span class="token method function property-access">isLoopback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> a<span class="token punctuation">.</span><span class="token method function property-access">isLinkLocal</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> a<span class="token punctuation">.</span><span class="token method function property-access">isPrivate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> a<span class="token punctuation">.</span><span class="token method function property-access">isMulticast</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">||</span> a<span class="token punctuation">.</span><span class="token method function property-access">isUnspecified</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> h <span class="token keyword keyword-of">of</span> <span class="token punctuation">[</span><span class="token string">'fe80::1'</span><span class="token punctuation">,</span> <span class="token string">'fe81::1'</span><span class="token punctuation">,</span> <span class="token string">'febf::1'</span><span class="token punctuation">,</span> <span class="token string">'fe80:0:0:1::1'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> a <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">isBlocked</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'BLOCK'</span> <span class="token operator">:</span> <span class="token string">'ALLOW'</span><span class="token punctuation">,</span> h<span class="token punctuation">,</span> <span class="token string">'-&gt; getType()'</span><span class="token punctuation">,</span> a<span class="token punctuation">.</span><span class="token method function property-access">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>On affected versions:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>BLOCK fe80::1 -&gt; getType() Link-local unicast
+ALLOW fe81::1 -&gt; getType() Link-local unicast
+ALLOW febf::1 -&gt; getType() Link-local unicast
+ALLOW fe80:0:0:1::1 -&gt; getType() Link-local unicast
+</code></pre><h3 id="remediation-4">Remediation </h3>
+<p>Upgrade to the patched release. In the fix, <code>isLinkLocal()</code> tests the address against <code>fe80::/10</code> with the same <code>isHostInSubnet</code> predicate <code>getType()</code> and <code>Address4.isLinkLocal()</code> use. The same release adds <code>2001::/32</code> to the type table so <code>getType()</code> reports <code>'Teredo'</code> for the addresses <code>isTeredo()</code> returns <code>true</code> for; that is a consistency correction with no security effect.</p>
+<p>If you cannot upgrade immediately, test the range directly:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token constant">LINK_LOCAL</span> <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span><span class="token string">'fe80::/10'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> linkLocal <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">isHostInSubnet</span><span class="token punctuation">(</span><span class="token constant">LINK_LOCAL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="a-note-on-ssrf-defense-1">A note on SSRF defense </h3>
+<p>These methods are address classifiers, not a complete SSRF defense. Regardless of this fix, a robust SSRF guard must resolve the hostname and validate the <em>resolved</em> IP against the socket it connects to, and account for DNS rebinding and redirects. Treat these checks as one layer, not the only one.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-101912?s=github&amp;n=ip-address&amp;t=npm&amp;vr=%3C%3D10.7.0"><img alt="medium 6.3: CVE--2026--101912" src="./audit-initial-cves_files/CVE--2026--101912-lightgrey"></a> <i>Incorrect Comparison</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=10.7.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>10.7.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.370%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>31st percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-9">Summary </h3>
+<p><code>isInSubnet()</code> and <code>isHostInSubnet()</code> accept an address of either family and compare masked binary strings without checking that both operands are the same family. <code>Address4</code> pads to 32 bits and <code>Address6</code> to 128, so whenever the leading bits agree the strings are equal: <code>new Address6('a00::1').isInSubnet(new Address4('10.0.0.0/8'))</code> is <code>true</code>, and <code>new Address4('32.0.0.1').isInSubnet(new Address6('2000::/3'))</code> is <code>true</code>. No IPv4 address is inside an IPv6 network, so both answers are untrue.</p>
+<p>An application that parses untrusted input as whichever family accepts it and then tests the result against a fixed-family allowlist can admit an address outside the list.</p>
+<h3 id="details-5">Details </h3>
+<p>Both methods are in <code>src/common.ts</code>:</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-export">export</span> <span class="token keyword keyword-function">function</span> <span class="token function">isInSubnet</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token operator">:</span> Address4 <span class="token operator">|</span> Address6<span class="token punctuation">,</span> address<span class="token operator">:</span> Address4 <span class="token operator">|</span> Address6<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>subnetMask <span class="token operator">&lt;</span> address<span class="token punctuation">.</span>subnetMask<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-return">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword keyword-return">return</span> <span class="token function">isHostInSubnet</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">,</span> address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-export">export</span> <span class="token keyword keyword-function">function</span> <span class="token function">isHostInSubnet</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token operator">:</span> Address4 <span class="token operator">|</span> Address6<span class="token punctuation">,</span> address<span class="token operator">:</span> Address4 <span class="token operator">|</span> Address6<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token function">mask</span><span class="token punctuation">(</span>address<span class="token punctuation">.</span>subnetMask<span class="token punctuation">)</span> <span class="token operator">===</span> address<span class="token punctuation">.</span><span class="token function">mask</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p><code>mask(n)</code> returns the first <code>n</code> bits of the address as a string of <code>0</code> and <code>1</code>, taken from a representation padded to the family's width. <code>new Address6('a00::1').mask(8)</code> is <code>'00001010'</code>, and so is <code>new Address4('10.0.0.0/8').mask()</code>, so string equality reports containment. The signature admits either family on either side, so TypeScript raises nothing, and the <code>v4</code> property on <code>Address6</code> marks IPv4 notation (<code>::ffff:10.0.0.1</code>) rather than family, so it does not discriminate either.</p>
+<p>Which cross-family pairs coincide depends on the network's prefix length. <code>mask(n)</code> on an <code>Address4</code> returns at most 32 bits, so an IPv6 network longer than <code>/32</code> never matches an IPv4 address, and an IPv6 network of <code>/32</code> or shorter matches exactly the IPv4 addresses whose leading bits equal its prefix. An IPv4 network is at most 32 bits and matches every IPv6 address whose leading bits equal its prefix.</p>
+<h3 id="affected-versions-5">Affected versions </h3>
+<p><code>&lt;= 10.7.0</code>. The comparison has had this shape since the methods were written, so every release is affected.</p>
+<h3 id="impact-10">Impact </h3>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Result</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>new Address6('a00::1').isInSubnet(new Address4('10.0.0.0/8'))</code></td>
+<td><code>true</code></td>
+<td>both mask to <code>00001010</code></td>
+</tr>
+<tr>
+<td><code>new Address4('10.0.0.1').isInSubnet(new Address6('a00::/8'))</code></td>
+<td><code>true</code></td>
+<td>the same bits, reversed</td>
+</tr>
+<tr>
+<td><code>new Address4('32.0.0.1').isInSubnet(new Address6('2000::/3'))</code></td>
+<td><code>true</code></td>
+<td>both begin <code>001</code></td>
+</tr>
+<tr>
+<td><code>new Address4('32.1.13.184').isInSubnet(new Address6('2001:db8::/32'))</code></td>
+<td><code>true</code></td>
+<td>the <code>/32</code> spells an IPv4 address</td>
+</tr>
+<tr>
+<td><code>new Address6('cb00:7100::1').isInSubnet(new Address4('203.0.113.0/24'))</code></td>
+<td><code>true</code></td>
+<td>the <code>/24</code> spells an IPv6 prefix</td>
+</tr>
+<tr>
+<td><code>new Address4('10.0.0.1').isInSubnet(new Address6('::ffff:10.0.0.0/104'))</code></td>
+<td><code>false</code></td>
+<td><code>/104</code> is longer than 32 bits</td>
+</tr>
+<tr>
+<td><code>new Address4('8.8.8.8').isInSubnet(new Address4('10.0.0.0/8'))</code></td>
+<td><code>false</code></td>
+<td>same-family control</td>
+</tr>
+</tbody>
+</table>
+<p>In the allowlist direction the check admits an address outside the list; in the denylist direction it blocks an address outside the list. What the coincidence can admit is narrow. An IPv6 allowlist of <code>/32</code> or shorter admits the IPv4 addresses its prefix spells: <code>2001:db8::/32</code> admits exactly <code>32.1.13.184</code>, and <code>2000::/3</code> admits <code>32.0.0.0/3</code>. Those are public IPv4 addresses; the private, loopback, and link-local ranges begin with bit patterns no allocated IPv6 prefix shares. An IPv4 allowlist admits the IPv6 addresses its prefix spells, and those all sit in blocks IANA has not allocated. So a request admitted through this defect reaches an address outside the intended list, not an internal host, and the severity reflects that.</p>
+<h3 id="proof-of-concept-6">Proof of concept </h3>
+<p><code>npm i ip-address@&lt;!-- --&gt;10.7.0</code>, then:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Address4</span><span class="token punctuation">,</span> <span class="token maybe-class-name">Address6</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ip-address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// An allowlist of the application's own IPv6 range, tested against whichever</span>
+<span class="token comment">// family the input parses as.</span>
+<span class="token keyword keyword-const">const</span> allowed <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span><span class="token string">'2001:db8::/32'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function">parse</span><span class="token punctuation">(</span><span class="token parameter">host</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token maybe-class-name">Address4</span><span class="token punctuation">.</span><span class="token method function property-access">isValid</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address4</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> h <span class="token keyword keyword-of">of</span> <span class="token punctuation">[</span><span class="token string">'2001:db8::1'</span><span class="token punctuation">,</span> <span class="token string">'2001:db9::1'</span><span class="token punctuation">,</span> <span class="token string">'32.1.13.184'</span><span class="token punctuation">,</span> <span class="token string">'32.1.13.185'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token function">parse</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">isInSubnet</span><span class="token punctuation">(</span>allowed<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'ALLOW'</span> <span class="token operator">:</span> <span class="token string">'BLOCK'</span><span class="token punctuation">,</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>On affected versions:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>ALLOW 2001:db8::1
+BLOCK 2001:db9::1
+ALLOW 32.1.13.184
+BLOCK 32.1.13.185
+</code></pre><p>The IPv6 rows are right. The IPv4 address whose 32 bits equal the allowlist's prefix is admitted; the one next to it is not.</p>
+<h3 id="remediation-5">Remediation </h3>
+<p>Upgrade to the patched release. In the fix, <code>isHostInSubnet()</code> returns <code>false</code> when the two addresses are of different families, and <code>isInSubnet()</code> inherits the answer. The methods keep accepting either family so existing call sites compile. A caller that means to compare across families converts first, with <code>Address6.fromAddress4()</code>, <code>to4()</code>, or <code>toAddress4Nat64()</code>: <code>new Address6('::ffff:10.0.0.1').to4().isInSubnet(new Address4('10.0.0.0/8'))</code> is <code>true</code>, as before.</p>
+<p>If you cannot upgrade immediately, compare the classes before you compare the addresses:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> contained <span class="token operator">=</span> host<span class="token punctuation">.</span><span class="token property-access">constructor</span> <span class="token operator">===</span> network<span class="token punctuation">.</span><span class="token property-access">constructor</span> <span class="token operator">&amp;&amp;</span> host<span class="token punctuation">.</span><span class="token method function property-access">isInSubnet</span><span class="token punctuation">(</span>network<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="a-note-on-ssrf-defense-2">A note on SSRF defense </h3>
+<p>These methods are address classifiers, not a complete SSRF defense. Regardless of this fix, a robust SSRF guard must resolve the hostname and validate the <em>resolved</em> IP against the socket it connects to, and account for DNS rebinding and redirects. Treat these checks as one layer, not the only one.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-101911?s=github&amp;n=ip-address&amp;t=npm&amp;vr=%3C%3D10.7.0"><img alt="medium 6.3: CVE--2026--101911" src="./audit-initial-cves_files/CVE--2026--101911-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=10.7.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>10.7.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.383%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>33rd percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-10">Summary </h3>
+<p><code>new Address6()</code> and <code>Address6.isValid()</code> place no bound on the length of the string they parse. When the string contains a character that cannot appear in an IPv6 address, the parser builds a diagnostic that wraps every such character in a 34-byte <code>&lt;span class="parse-error"&gt;</code>, so the work and the memory scale with the input rather than with an address. A 1 MiB string of <code>!</code> costs about 110 MB and 70 ms of synchronous work, 8 MiB costs about 800 MB and half a second, 16 MiB throws a <code>RangeError</code> in place of the documented <code>AddressError</code>, and 32 MiB aborts the Node process. <code>isValid()</code> builds the diagnostic and discards it, so a caller that only asks whether a string is valid pays the full price.</p>
+<p>An application that validates an attacker-supplied string with these methods can be stalled or crashed by a single oversized request. This is a crash on input that should have been rejected cleanly, which <a href="http://security.md/">SECURITY.md</a> lists as in scope.</p>
+<h3 id="details-6">Details </h3>
+<p><code>parse()</code> in <code>src/ipv6.ts</code> checks for characters outside <code>[0-9a-f:/%]</code> and, on finding any, throws an <code>AddressError</code> whose <code>parseMessage</code> is the whole input with each offending character wrapped:</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-const">const</span> badCharacters <span class="token operator">=</span> address<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>constants6<span class="token punctuation">.</span><span class="token constant">RE_BAD_CHARACTERS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>badCharacters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">AddressError</span><span class="token punctuation">(</span>
+    <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Bad character</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>badCharacters<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token string">'s'</span> <span class="token operator">:</span> <span class="token string">''</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> detected in address: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>badCharacters<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    address<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>constants6<span class="token punctuation">.</span><span class="token constant">RE_BAD_CHARACTERS</span><span class="token punctuation">,</span> <span class="token string">'&lt;span class="parse-error"&gt;$1&lt;/span&gt;'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p><code>RE_BAD_CHARACTERS</code> is <code>/([^0-9a-f:/%])/gi</code>. For an input made entirely of punctuation the <code>match</code> allocates one string per character, the <code>join</code> copies them all into the message, and the <code>replace</code> produces a string 34 times the input. Nothing before this point looks at the length: the constructor strips a CIDR suffix and a zone identifier and hands the rest to <code>parse()</code>. The <code>RE_BAD_ADDRESS</code> branch below it builds its diagnostic the same way at about a third of the ratio, for input in the hex-and-colon alphabet such as <code>fffff:</code> repeated.</p>
+<p><code>parse()</code> is reached only through the constructor, so every entry point that constructs an <code>Address6</code> from a string it has not already bounded is affected: <code>new Address6()</code>, <code>isValid()</code>, both arguments of <code>fromAddressAndMask()</code> and <code>fromAddressAndWildcardMask()</code>, <code>fromWildcard()</code>, and the prefix argument of <code>fromAddress4Nat64()</code> and <code>toAddress4Nat64()</code>. <code>fromURL()</code> admits only hex, colons, and dots in a host, so it reaches the <code>RE_BAD_ADDRESS</code> branch and not the other. <code>fromArpa()</code> caps its input at 32 nibbles before constructing anything, and <code>fromBigInt()</code>, <code>fromByteArray()</code>, and <code>fromAddress4()</code> build the string themselves, so those are unaffected.</p>
+<p>The <code>replace</code> is where size becomes fatal. V8 caps a string at 2^29 - 24 characters, so past 16 MiB of input the <code>replace</code> throws <code>RangeError: Invalid string length</code> rather than the <code>AddressError</code> callers catch; <code>isValid()</code> swallows it, but a constructor call guarded by <code>instanceof AddressError</code> does not. Past 32 MiB the replacement builder's internal array exceeds its maximum size and V8 aborts the process with <code>Fatal JavaScript invalid size error</code>, which no <code>try</code>/<code>catch</code> intercepts.</p>
+<h3 id="affected-versions-6">Affected versions </h3>
+<p><code>&lt;= 10.7.0</code>. The diagnostic has had this shape since the parser was written, so every release is affected.</p>
+<h3 id="impact-11">Impact </h3>
+<p><code>Address6.isValid()</code> on N bytes of <code>!</code>, measured on node 24.19.0:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Wall time</th>
+<th>Transient heap</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16 KiB</td>
+<td>1 ms</td>
+<td>1 MB</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>1 MiB</td>
+<td>73 ms</td>
+<td>112 MB</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>8 MiB</td>
+<td>464 ms</td>
+<td>784 MB</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>16 MiB</td>
+<td></td>
+<td></td>
+<td><code>RangeError: Invalid string length</code> from the constructor; <code>isValid()</code> returns <code>false</code></td>
+</tr>
+<tr>
+<td>32 MiB</td>
+<td></td>
+<td></td>
+<td>the process aborts</td>
+</tr>
+</tbody>
+</table>
+<p>The parse is synchronous, so the event loop is blocked for the whole of the wall time and nothing else on that process is served. The heap is transient and is reclaimed after the call returns, so memory does not accumulate across requests; the abort at 32 MiB is a single request. <code>Address4</code> has no diagnostic of this shape and parses the same 8 MiB in a few milliseconds.</p>
+<h3 id="reachability-2">Reachability </h3>
+<p>Reaching the sizes above requires that the application hand the parser a string it has not already bounded. A host taken from a URL or an HTTP header is bounded by the server's header limit (Node's default is 16 KB), and at that size the cost is a millisecond. The megabyte sizes need a request body the application accepts at that scale and passes through unchecked. Common body parsers default to between 100 KB and 1 MB, which caps the effect at a stall of under 100 ms per request, and the abort needs 32 MiB in a single field, which no default admits. The severity is scored for the stall, not the abort: an application that accepts 32 MiB bodies into an address parser is the exception, and the reader running one should treat this as a crash.</p>
+<h3 id="proof-of-concept-7">Proof of concept </h3>
+<p><code>npm i ip-address@&lt;!-- --&gt;10.7.0</code>, then:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Address6</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ip-address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword control-flow keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-const">const</span> mib <span class="token keyword keyword-of">of</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> input <span class="token operator">=</span> <span class="token string">'!'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span>mib <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> before <span class="token operator">=</span> process<span class="token punctuation">.</span><span class="token method function property-access">memoryUsage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">heapUsed</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> start <span class="token operator">=</span> process<span class="token punctuation">.</span><span class="token property-access">hrtime</span><span class="token punctuation">.</span><span class="token method function property-access">bigint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token maybe-class-name">Address6</span><span class="token punctuation">.</span><span class="token method function property-access">isValid</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword keyword-const">const</span> ms <span class="token operator">=</span> <span class="token known-class-name class-name">Number</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token property-access">hrtime</span><span class="token punctuation">.</span><span class="token method function property-access">bigint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> start<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1e6</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> mb <span class="token operator">=</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span><span class="token method function property-access">memoryUsage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token property-access">heapUsed</span> <span class="token operator">-</span> before<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1048576</span><span class="token punctuation">;</span>
+
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>mib<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> MiB: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ms<span class="token punctuation">.</span><span class="token method function property-access">toFixed</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> ms, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>mb<span class="token punctuation">.</span><span class="token method function property-access">toFixed</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> MB</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword control-flow keyword-try">try</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span><span class="token string">'!'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">16</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword control-flow keyword-catch">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">16 MiB: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>e<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>e<span class="token punctuation">.</span><span class="token property-access">message</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span><span class="token string">'!'</span><span class="token punctuation">.</span><span class="token method function property-access">repeat</span><span class="token punctuation">(</span><span class="token number">32</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>On affected versions (node 24.19.0):</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1 MiB: 73 ms, 112 MB
+8 MiB: 464 ms, 784 MB
+16 MiB: RangeError: Invalid string length
+
+
+#
+# Fatal error in , line 0
+# Fatal JavaScript invalid size error 142606336
+#
+</code></pre><p>The last line is V8 terminating the process; the script does not reach its end.</p>
+<h3 id="remediation-6">Remediation </h3>
+<p>Upgrade to the patched release. In the fix, the constructor rejects an address longer than the family allows before <code>parse()</code> runs: 45 characters for IPv6 once the CIDR suffix and zone identifier are stripped (six four-digit groups, six colons, and a dotted quad, the same line CPython's <code>ipaddress</code> module draws), and 15 characters for IPv4. The rejection is an <code>AddressError</code> with no <code>parseMessage</code>, so <code>isValid()</code> returns <code>false</code> for the cost of a length comparison and the 32 MiB input above is rejected in the same time as a 46-character one. A zone identifier is not counted, since it never reaches the diagnostic.</p>
+<p>This rejects nothing a previous release accepted: every string longer than the limit already failed to parse.</p>
+<p>If you cannot upgrade immediately, reject a candidate longer than an address with a zone identifier can be before you parse it:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>host<span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">&gt;</span> <span class="token number">64</span><span class="token punctuation">)</span> <span class="token keyword control-flow keyword-throw">throw</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'not an IP address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-42338?s=github&amp;n=ip-address&amp;t=npm&amp;vr=%3C%3D10.1.0"><img alt="medium 5.3: CVE--2026--42338" src="./audit-initial-cves_files/CVE--2026--42338-lightgrey"></a> <i>Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=10.1.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>10.1.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.471%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>41st percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="summary-11">Summary </h3>
+<p><code>Address6.group()</code> and <code>Address6.link()</code> do not HTML-escape attacker-controlled content before embedding it in the HTML strings they return, and <code>AddressError.parseMessage</code> (emitted by the <code>Address6</code> constructor for invalid input) can contain unescaped attacker-controlled content in one branch. An application that (1) passes untrusted input to <code>Address6</code> and (2) renders the output of these methods, or the thrown error's <code>parseMessage</code>, as HTML (e.g. via <code>innerHTML</code>) is vulnerable to cross-site scripting. A related issue in <code>v6.helpers.spanAll()</code> produced malformed markup but was not exploitable; it is hardened in the same release for consistency.</p>
+<h3 id="details-7">Details </h3>
+<p>Four related issues were identified and fixed together:</p>
+<ol>
+<li><strong><code>Address6.group()</code>: zone ID injection.</strong> The <code>Address6</code> constructor stores the raw input (including any IPv6 zone ID) in <code>this.address</code> before zone stripping. <code>group()</code> then passed <code>this.address</code> to <code>helpers.simpleGroup()</code>, which wrapped each <code>:</code>-separated segment in a <code>&lt;span&gt;</code> element without HTML-escaping the content. A zone ID containing HTML markup was embedded verbatim.</li>
+<li><strong><code>Address6.link({ prefix, className })</code>: attribute-value injection.</strong> <code>link()</code> concatenated user-supplied <code>prefix</code> and <code>className</code> into the <code>href="…"</code> and <code>class="…"</code> attributes without escaping. A caller passing untrusted content through these options could inject event handlers (e.g. <code>onmouseover</code>) and achieve XSS.</li>
+<li><strong><code>Address6</code> constructor: leading-zero IPv4 error path.</strong> The leading-zero branch in <code>parse4in6()</code> built <code>AddressError.parseMessage</code> by concatenating the raw address through <code>String.replace()</code>. Because <code>parse4in6()</code> runs before the bad-character check, any characters in the groups preceding the IPv4 suffix flowed into the error's HTML unescaped. Consumers who render <code>parseMessage</code> as HTML (its documented purpose — it already contains <code>&lt;span class="parse-error"&gt;</code> markup) could be XSS'd by a crafted input such as <code>&lt;img src=x onerror=alert(1)&gt;:10.0.01.1</code>.</li>
+<li><strong><code>v6.helpers.spanAll()</code>: attribute-value injection (defense in depth).</strong> <code>spanAll()</code> embedded each character of its input into a <code>class="digit value-${n} …"</code> attribute without escaping. Because <code>split('')</code> limits <code>n</code> to a single character this was not exploitable in practice, but it produced malformed markup and is fixed for consistency.</li>
+</ol>
+<h3 id="affected-versions-7">Affected Versions </h3>
+<p>All versions up to and including <code>10.1.0</code>.</p>
+<h3 id="patched-version">Patched Version </h3>
+<p><code>10.1.1</code>.</p>
+<h3 id="impact-12">Impact </h3>
+<p>Real-world exposure is believed to be extremely limited. Analysis of all 425 dependent npm packages as well as GitHub code search found zero consumers of <code>group()</code>, <code>link()</code>, or <code>spanAll()</code>: these HTML-emitting surfaces appear to be unused across published npm packages and public repositories. Applications using only the address-parsing and comparison APIs (<code>isValid</code>, <code>correctForm</code>, <code>isInSubnet</code>, <code>bigInt</code>, etc.) are not affected.</p>
+<p>Consumers who <strong>do</strong> render the output of <code>group()</code>, <code>link()</code>, <code>spanAll()</code>, or <code>AddressError.parseMessage</code> as HTML against untrusted input should upgrade.</p>
+<h3 id="poc">PoC </h3>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">Address6</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'ip-address'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> addr <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Address6</span><span class="token punctuation">(</span><span class="token string">'fe80::1%&lt;img src=x onerror=alert(1)&gt;'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> addr<span class="token punctuation">.</span><span class="token method function property-access">group</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// fires the onerror handler in 10.1.0</span>
+</code></pre><h3 id="workarounds-2">Workarounds </h3>
+<p>If users cannot upgrade immediately:</p>
+<ul>
+<li>Do not pass untrusted input to the <code>Address6</code> constructor, or</li>
+<li>Never render the output of <code>group()</code>, <code>link()</code>, or <code>spanAll()</code>, nor the <code>parseMessage</code> field of any thrown <code>AddressError</code>, as HTML; treat these values as text only, or run them through <a href="https://github.com/cure53/DOMPurify">DOMPurify</a> before inserting into the DOM (DOMPurify's default configuration preserves the library's intended <code>&lt;span&gt;</code> wrapping while stripping any injected event handlers), or</li>
+<li>Validate input with <code>Address6.isValid()</code> and reject anything that contains a zone identifier (a <code>%</code> character) or characters outside <code>[0-9a-fA-F:/]</code> before passing it to the constructor.</li>
+</ul>
+<h3 id="lack-of-separate-cves">Lack of separate CVEs </h3>
+<p>Given the evidence that these methods are not used, and given that they are all of the same construction, maintainers do not think it's relevant or useful to create a separate CVE for each library method.</p>
+<h3 id="credit-1">Credit </h3>
+<p>ip-address thanks @<!-- -->scovetta for reporting this issue.</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 1" src="./audit-initial-cves_files/H-1-e25d68"> <img alt="medium: 1" src="./audit-initial-cves_files/M-1-fbb552"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>picomatch</strong> <code>4.0.3</code> (npm)</summary>
+<p><small><code>pkg:npm/picomatch@4.0.3</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-33671?s=github&amp;n=picomatch&amp;t=npm&amp;vr=%3E%3D4.0.0%2C%3C4.0.4"><img alt="high 7.5: CVE--2026--33671" src="./audit-initial-cves_files/CVE--2026--33671-lightgrey"></a> <i>Inefficient Regular Expression Complexity</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=4.0.0<br>&lt;4.0.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>4.0.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.429%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="impact-13">Impact </h3>
+<p><code>picomatch</code> is vulnerable to Regular Expression Denial of Service (ReDoS) when processing crafted extglob patterns. Certain patterns using extglob quantifiers such as <code>+()</code> and <code>*()</code>, especially when combined with overlapping alternatives or nested extglobs, are compiled into regular expressions that can exhibit catastrophic backtracking on non-matching input.</p>
+<p>Examples of problematic patterns include <code>+(a|aa)</code>, <code>+(*|?)</code>, <code>+(+(a))</code>, <code>*(+(a))</code>, and <code>+(+(+(a)))</code>. In local reproduction, these patterns caused multi-second event-loop blocking with relatively short inputs. For example, <code>+(a|aa)</code> compiled to <code>^(?:(?=.)(?:a|aa)+)$</code> and took about 2 seconds to reject a 41-character non-matching input, while nested patterns such as <code>+(+(a))</code> and <code>*(+(a))</code> took around 29 seconds to reject a 33-character input on a modern M1 MacBook.</p>
+<p>Applications are impacted when they allow untrusted users to supply glob patterns that are passed to <code>picomatch</code> for compilation or matching. In those cases, an attacker can cause excessive CPU consumption and block the Node.js event loop, resulting in a denial of service. Applications that only use trusted, developer-controlled glob patterns are much less likely to be exposed in a security-relevant way.</p>
+<h3 id="patches-2">Patches </h3>
+<p>This issue is fixed in picomatch 4.0.4, 3.0.2 and 2.3.2.</p>
+<p>Users should upgrade to one of these versions or later, depending on their supported release line.</p>
+<h3 id="workarounds-3">Workarounds </h3>
+<p>If upgrading is not immediately possible, avoid passing untrusted glob patterns to <code>picomatch</code>.</p>
+<p>Possible mitigations include:</p>
+<ul>
+<li>disable extglob support for untrusted patterns by using <code>noextglob: true</code></li>
+<li>reject or sanitize patterns containing nested extglobs or extglob quantifiers such as <code>+()</code> and <code>*()</code></li>
+<li>enforce strict allowlists for accepted pattern syntax</li>
+<li>run matching in an isolated worker or separate process with time and resource limits</li>
+<li>apply application-level request throttling and input validation for any endpoint that accepts glob patterns</li>
+</ul>
+<h3 id="resources">Resources </h3>
+<ul>
+<li>Picomatch repository: <a href="https://github.com/micromatch/picomatch">https://github.com/micromatch/picomatch</a></li>
+<li><code>lib/parse.js</code> and <code>lib/constants.js</code> are involved in generating the vulnerable regex forms</li>
+<li>Comparable ReDoS precedent: CVE-2024-4067 (<code>micromatch</code>)</li>
+<li>Comparable generated-regex precedent: CVE-2024-45296 (<code>path-to-regexp</code>)</li>
+</ul>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-33672?s=github&amp;n=picomatch&amp;t=npm&amp;vr=%3E%3D4.0.0%2C%3C4.0.4"><img alt="medium 5.3: CVE--2026--33672" src="./audit-initial-cves_files/CVE--2026--33672-lightgrey"></a> <i>Improperly Controlled Modification of Object Prototype Attributes ('Prototype Pollution')</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=4.0.0<br>&lt;4.0.4</code></td></tr>
+<tr><td>Fixed version</td><td><code>4.0.4</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.435%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>38th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3 id="impact-14">Impact </h3>
+<p>picomatch is vulnerable to a <strong>method injection vulnerability (CWE-1321)</strong> affecting the <code>POSIX_REGEX_SOURCE</code> object. Because the object inherits from <code>Object.prototype</code>, specially crafted POSIX bracket expressions (e.g., <code>[[:constructor:]]</code>) can reference inherited method names. These methods are implicitly converted to strings and injected into the generated regular expression.</p>
+<p>This leads to <strong>incorrect glob matching behavior (integrity impact)</strong>, where patterns may match unintended filenames. The issue does <strong>not enable remote code execution</strong>, but it can cause security-relevant logic errors in applications that rely on glob matching for filtering, validation, or access control.</p>
+<p>All users of affected <code>picomatch</code> versions that process untrusted or user-controlled glob patterns are potentially impacted.</p>
+<h3 id="patches-3">Patches </h3>
+<p>This issue is fixed in picomatch 4.0.4, 3.0.2 and 2.3.2.</p>
+<p>Users should upgrade to one of these versions or later, depending on their supported release line.</p>
+<h3 id="workarounds-4">Workarounds </h3>
+<p>If upgrading is not immediately possible, avoid passing untrusted glob patterns to picomatch.</p>
+<p>Possible mitigations include:</p>
+<ul>
+<li>
+<p>Sanitizing or rejecting untrusted glob patterns, especially those containing POSIX character classes like <code>[[:...:]]</code>.</p>
+</li>
+<li>
+<p>Avoiding the use of POSIX bracket expressions if user input is involved.</p>
+</li>
+<li>
+<p>Manually patching the library by modifying <code>POSIX_REGEX_SOURCE</code> to use a null prototype:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword keyword-const">const</span> <span class="token constant">POSIX_REGEX_SOURCE</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">__proto__</span><span class="token operator">:</span> <span class="token keyword null nil keyword-null">null</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">alnum</span><span class="token operator">:</span> <span class="token string">'a-zA-Z0-9'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">alpha</span><span class="token operator">:</span> <span class="token string">'a-zA-Z'</span><span class="token punctuation">,</span>
+  <span class="token comment">// ... rest unchanged</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre>
+</li>
+</ul>
+<h3>Resources</h3>
+<ul>
+<li>fix for similar issue: <a href="https://github.com/micromatch/picomatch/pull/144">https://github.com/micromatch/picomatch/pull/144</a></li>
+<li>picomatch repository <a href="https://github.com/micromatch/picomatch">https://github.com/micromatch/picomatch</a></li>
+</ul>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 1" src="./audit-initial-cves_files/H-1-e25d68"> <img alt="medium: 0" src="./audit-initial-cves_files/M-0-lightgrey"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>musl</strong> <code>1.2.6-r3</code> (apk)</summary>
+<p><small><code>pkg:apk/alpine/musl@1.2.6-r3?os_name=alpine&amp;os_version=3.24</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-107891?s=alpine&amp;n=musl&amp;ns=alpine&amp;t=apk&amp;osn=alpine&amp;osv=3.24&amp;vr=%3C1.2.6-r6"><img alt="high : CVE--2026--107891" src="./audit-initial-cves_files/CVE--2026--107891-lightgrey"></a></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;1.2.6-r6</code></td></tr>
+<tr><td>Fixed version</td><td><code>1.2.6-r6</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.549%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>47th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 1" src="./audit-initial-cves_files/H-1-e25d68"> <img alt="medium: 0" src="./audit-initial-cves_files/M-0-lightgrey"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>sigstore</strong> <code>3.1.0</code> (npm)</summary>
+<p><small><code>pkg:npm/sigstore@3.1.0</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-48815?s=github&amp;n=sigstore&amp;t=npm&amp;vr=%3C%3D4.1.0"><img alt="high 7.5: CVE--2026--48815" src="./audit-initial-cves_files/CVE--2026--48815-lightgrey"></a> <i>Improper Verification of Cryptographic Signature</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=4.1.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>4.1.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.5</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.173%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>7th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3>Summary</h3>
+<p>The documented <code>certificateOIDs</code> option in <code>sigstore.verify()</code> is accepted by the public API but discarded before verification, so required certificate extension OIDs are never checked.</p>
+<h3>Details</h3>
+<p>The public verify options include <code>certificateOIDs</code> and the documentation says those OID/value pairs “must be present in the certificate’s extension list.” The policy-construction path used by <code>sigstore.verify()</code> and <code>createVerifier()</code> only copies the SAN and issuer settings into the verification policy and completely ignores <code>certificateOIDs</code>.</p>
+<p>As a result, callers can believe they are constraining verification to certificates carrying specific Fulcio or workload-identifying OIDs, while the actual verifier never receives those constraints. Any bundle that satisfies the remaining checks is accepted even if the required OID extensions are absent or mismatched.</p>
+<p>This is reachable from supported usage through the documented <code>certificateOIDs</code> verify option.</p>
+<h3>PoC</h3>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> createVerificationPolicy <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"sigstore/dist/config"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> policy <span class="token operator">=</span> <span class="token function">createVerificationPolicy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">certificateIssuer</span><span class="token operator">:</span> <span class="token string">"https://issuer.example"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">certificateIdentityEmail</span><span class="token operator">:</span> <span class="token string">"victim@&lt;!-- --&gt;example.com"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">certificateOIDs</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">"1.2.3.4"</span><span class="token operator">:</span> <span class="token string">"required-value"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">"certificateOIDs"</span> <span class="token keyword keyword-in">in</span> policy<span class="token punctuation">,</span> <span class="token known-class-name class-name">JSON</span><span class="token punctuation">.</span><span class="token method function property-access">stringify</span><span class="token punctuation">(</span>policy<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// false {"subjectAlternativeName":"victim@&lt;!-- --&gt;example.com","extensions":{"issuer":"https://issuer.example"}}</span>
+</code></pre><h3>Impact</h3>
+<p>Applications that rely on <code>certificateOIDs</code> to restrict which certificates may sign artifacts receive no such protection. Unauthorized certificates that should be rejected on extension policy can be accepted as long as they satisfy the remaining verification checks.</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 1" src="./audit-initial-cves_files/H-1-e25d68"> <img alt="medium: 0" src="./audit-initial-cves_files/M-0-lightgrey"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>pacote</strong> <code>20.0.1</code> (npm)</summary>
+<p><small><code>pkg:npm/pacote@20.0.1</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-9496?s=github&amp;n=pacote&amp;t=npm&amp;vr=%3E%3D11.2.7%2C%3C21.5.1"><img alt="high 7.7: CVE--2026--9496" src="./audit-initial-cves_files/CVE--2026--9496-lightgrey"></a> <i>Inefficient Regular Expression Complexity</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=11.2.7<br>&lt;21.5.1</code></td></tr>
+<tr><td>Fixed version</td><td><code>21.5.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.346%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<p>Versions of the package pacote from 11.2.7 are vulnerable to Denial of Service (DoS) via the addGitSha function. An attacker can exploit this vulnerability by supplying a specially crafted spec.rawSpec value that triggers the function’s regex replacement and string-manipulation logic, causing excessive CPU consumption and potentially stalling or crashing the process.</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 1" src="./audit-initial-cves_files/H-1-e25d68"> <img alt="medium: 0" src="./audit-initial-cves_files/M-0-lightgrey"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>pacote</strong> <code>19.0.2</code> (npm)</summary>
+<p><small><code>pkg:npm/pacote@19.0.2</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-9496?s=github&amp;n=pacote&amp;t=npm&amp;vr=%3E%3D11.2.7%2C%3C21.5.1"><img alt="high 7.7: CVE--2026--9496" src="./audit-initial-cves_files/CVE--2026--9496-lightgrey"></a> <i>Inefficient Regular Expression Complexity</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=11.2.7<br>&lt;21.5.1</code></td></tr>
+<tr><td>Fixed version</td><td><code>21.5.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>7.7</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.346%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<p>Versions of the package pacote from 11.2.7 are vulnerable to Denial of Service (DoS) via the addGitSha function. An attacker can exploit this vulnerability by supplying a specially crafted spec.rawSpec value that triggers the function’s regex replacement and string-manipulation logic, causing excessive CPU consumption and potentially stalling or crashing the process.</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 0" src="./audit-initial-cves_files/H-0-lightgrey"> <img alt="medium: 1" src="./audit-initial-cves_files/M-1-fbb552"> <img alt="low: 1" src="./audit-initial-cves_files/L-1-fce1a9"> <!-- unspecified: 0 --><strong>postcss-selector-parser</strong> <code>7.1.1</code> (npm)</summary>
+<p><small><code>pkg:npm/postcss-selector-parser@7.1.1</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-104844?s=github&amp;n=postcss-selector-parser&amp;t=npm&amp;vr=%3E%3D7.0.0%2C%3C7.1.6"><img alt="medium 5.9: CVE--2026--104844" src="./audit-initial-cves_files/CVE--2026--104844-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=7.0.0<br>&lt;7.1.6</code></td></tr>
+<tr><td>Fixed version</td><td><code>7.1.6</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.9</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.389%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>34th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3>Impact</h3>
+<p><code>.</code> and <code>#</code> are not word delimiters in the tokenizer, so a flat selector such as<br>
+<code>.a.a.a...</code> reaches <code>splitWord()</code> as a single word token carrying n class or id<br>
+indexes. Three passes scanned those index arrays linearly for every index,<br>
+making the parse O(n^2) in the number of indexes rather than in input length:<br>
+<code>uniqs()</code>, the <code>indices.forEach</code> loop, and the Sass-interpolation filter.<br>
+Parsing a 400 KB flat selector took ~34 s on a modern laptop, fully occupying a<br>
+single thread. A benign selector of identical byte size parses in tens of<br>
+milliseconds, so the cost is driven by the index count, not the input size.<br>
+The nesting depth of such a selector is 0, so the <code>maxNestingDepth</code> guard added<br>
+in 7.1.3 offers no protection.</p>
+<p>Reachability is deployment dependent. Only consumers that parse untrusted,<br>
+attacker-supplied selectors synchronously in a request path are exposed, for<br>
+example CSS sanitizers, CSS-in-JS services and online playgrounds. Ordinary<br>
+build-time use on trusted sources is not affected.</p>
+<h3>Patches</h3>
+<p>Fixed in 7.1.6. The three passes now use Set membership tests, making parsing<br>
+linear in the number of indexes. There is no behaviour change: parsing is<br>
+byte-identical on a differential corpus of 8413 selectors.</p>
+<h3>Workarounds</h3>
+<p>Cap the size of selectors accepted from untrusted sources before parsing.</p>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-9358?s=github&amp;n=postcss-selector-parser&amp;t=npm&amp;vr=%3E%3D7.1.0%2C%3C7.1.3"><img alt="low 2.1: CVE--2026--9358" src="./audit-initial-cves_files/CVE--2026--9358-lightgrey"></a> <i>Improper Resource Shutdown or Release</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=7.1.0<br>&lt;7.1.3</code></td></tr>
+<tr><td>Fixed version</td><td><code>7.1.3</code></td></tr>
+<tr><td>CVSS Score</td><td><code>2.1</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:P</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.325%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>26th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<p>A vulnerability was determined in postcss-selector-parser before 6.1.3 and 7.1.1. Affected is the function toString of the file src/selectors/container.js of the component AST Serialization. Executing a manipulation can lead to uncontrolled recursion. It is possible to launch the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor explains, that according to his definition "DoS on server-side on user-generated CSS is low risk for us (since most users compile own CSS with PostCSS)."</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 0" src="./audit-initial-cves_files/H-0-lightgrey"> <img alt="medium: 1" src="./audit-initial-cves_files/M-1-fbb552"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>minimatch</strong> <code>9.0.9</code> (npm)</summary>
+<p><small><code>pkg:npm/minimatch@9.0.9</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-118764?s=github&amp;n=minimatch&amp;t=npm&amp;vr=%3E%3D7.0.0%2C%3C11.0.1"><img alt="medium 6.9: CVE--2026--118764" src="./audit-initial-cves_files/CVE--2026--118764-lightgrey"></a> <i>Asymmetric Resource Consumption (Amplification)</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=7.0.0<br>&lt;11.0.1</code></td></tr>
+<tr><td>Fixed version</td><td><code>11.0.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.9</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.301%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>23rd percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<p>minimatch 10.2.6 contains an attacker-controlled pattern amplification in firstPhasePreProcess() when optimizationLevel &gt;= 2.</p>
+<p>researcher: Reid Downing (b1nv0id)<br>
+files:</p>
+<ul>
+<li>src/index.ts: 690-770</li>
+<li>src/index.ts: 780-796</li>
+</ul>
+<p>issue:<br>
+input-controlled growth of globParts during first-phase preprocessing, followed by quadratic second-phase processing.</p>
+<p>the **/../ transformation clones a globparts entry and appends the clone to the same globparts array:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>parts.splice(gs, 1)
+const other = parts.slice(0)
+other[gs] = '**'
+globParts.push(other)
+</code></pre><p>this occurs inside a do...while (didSomething) fixpoint loop, allowing generated entries to be processed again.</p>
+<p>the expanded globparts array is subsequently processed by secondPhasePreProcess(), which performs pairwise comparisons:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>for (let i = 0; i &lt; globParts.length - 1; i++) {
+  for (let j = i + 1; j &lt; globParts.length; j++) {
+    this.partsMatch(...)
+  }
+}
+</code></pre><p>an attacker who can supply a glob pattern can therefore cause additional pattern entries to be generated during preprocessing, followed by quadratic pairwise processing, resulting in excessive cpu and memory consumption.</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 0" src="./audit-initial-cves_files/H-0-lightgrey"> <img alt="medium: 1" src="./audit-initial-cves_files/M-1-fbb552"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>glob</strong> <code>10.5.0</code> (npm)</summary>
+<p><small><code>pkg:npm/glob@10.5.0</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-118773?s=github&amp;n=glob&amp;t=npm&amp;vr=%3E%3D9.0.0%2C%3C%3D14.0.1"><img alt="medium 6.3: CVE--2026--118773" src="./audit-initial-cves_files/CVE--2026--118773-lightgrey"></a> <i>Uncontrolled Resource Consumption</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&gt;=9.0.0<br>&lt;=14.0.1</code></td></tr>
+<tr><td>Fixed version</td><td><code>14.0.2</code></td></tr>
+<tr><td>CVSS Score</td><td><code>6.3</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.350%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>29th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3>Summary</h3>
+<p>In glob 13.0.6, an aborted async walk rejects or emits an error but continues recursively reading directories in the background.</p>
+<p>The root cause is that abort branches in src/walker.ts call cb() without returning. As a result, callers that rely on signal or AbortSignal.timeout() to bound glob traversal cost can still incur filesystem I/O and CPU work after the request has already been rejected.</p>
+<h3>Details</h3>
+<p>This was reproduced on glob v13.0.6 (commit e80cb38ae60d6cbff9e75f39032a994858994d35).</p>
+<p>The README documents that the signal option cancels the glob walk. However, in src/walker.ts, the following methods call cb() when this.signal?.aborted is true but do not return:</p>
+<ul>
+<li>GlobUtil.walkCB()</li>
+<li>GlobUtil.walkCB2()</li>
+<li>GlobUtil.walkCBSync()</li>
+<li>GlobUtil.walkCB2Sync()</li>
+</ul>
+<p>Example vulnerable pattern:</p>
+<p>if (this.signal?.aborted) cb()</p>
+<p>Because execution continues after cb(), the walker still reaches processor.processPatterns(), readdirCB(), and recursive walkCB2() calls.</p>
+<p>The issue was directly demonstrated against v13.0.6. A source-history review shows the same missing-return pattern is present in tagged releases from v9.0.0 through v13.0.6.</p>
+<p>The issue affects both glob() and globStream().</p>
+<p>Recommended fix:<br>
+Change each abort branch to return immediately:</p>
+<p>if (this.signal?.aborted) return cb()</p>
+<h3>Proof of concept</h3>
+<p>Environment:</p>
+<ul>
+<li>Linux x86_64</li>
+<li>Node.js v22.23.3</li>
+<li>npm 10.9.9</li>
+<li>glob 13.0.6</li>
+</ul>
+<p>Reproduction steps:</p>
+<ol>
+<li>
+<p>Install the affected package:<br>
+npm init -y<br>
+npm install glob@<!-- -->13.0.6</p>
+</li>
+<li>
+<p>Run the attached PoC:<br>
+node poc/abort-continues-work.mjs</p>
+</li>
+</ol>
+<p>The PoC aborts after the first readdir() call, waits briefly, and counts how many more directory reads happen after the promise has already rejected.</p>
+<p>Observed output on the vulnerable version:</p>
+<p>{<br>
+"rejection": "Error: probe-abort",<br>
+"readdirCalls": 1365,<br>
+"readdirCallsAtReject": 5,<br>
+"readdirCallsAfterReject": 1360<br>
+}</p>
+<p>Expected behavior:<br>
+readdirCallsAfterReject should be 0.</p>
+<p>A second PoC using AbortSignal.timeout() also reproduces the issue:</p>
+<p>{<br>
+"rejection": "TimeoutError: The operation was aborted due to timeout",<br>
+"readdirCalls": 133,<br>
+"readdirCallsAtReject": 1,<br>
+"readdirCallsAfterReject": 132<br>
+}</p>
+<p>The same test against a patched build with return cb() in the four abort branches stops immediately:</p>
+<p>{<br>
+"readdirCalls": 1,<br>
+"readdirCallsAtReject": 1,<br>
+"readdirCallsAfterReject": 0<br>
+}</p>
+<h3>Impact</h3>
+<p>This is an availability issue.</p>
+<p>Applications that expose globbing over attacker-influenced patterns or attacker-controlled directory trees and use AbortSignal / AbortSignal.timeout() as a traversal budget can still perform significant filesystem I/O and CPU work after a request has already timed out or been canceled.</p>
+<p>Repeated timed-out requests can stack background glob walks and degrade worker throughput or service availability.</p>
+<p>No confidentiality or integrity impact was observed.</p>
+</blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 0" src="./audit-initial-cves_files/H-0-lightgrey"> <img alt="medium: 1" src="./audit-initial-cves_files/M-1-fbb552"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <!-- unspecified: 0 --><strong>@sigstore/core</strong> <code>2.0.0</code> (npm)</summary>
+<p><small><code>pkg:npm/%40sigstore/core@2.0.0</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-48758?s=github&amp;n=core&amp;ns=%40sigstore&amp;t=npm&amp;vr=%3C%3D3.2.0"><img alt="medium 5.4: CVE--2026--48758" src="./audit-initial-cves_files/CVE--2026--48758-lightgrey"></a> <i>Improper Verification of Cryptographic Signature</i></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;=3.2.0</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.2.1</code></td></tr>
+<tr><td>CVSS Score</td><td><code>5.4</code></td></tr>
+<tr><td>CVSS Vector</td><td><code>CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.239%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>15th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+<h3>Impact</h3>
+<p>The <code>preAuthEncoding</code> function in <code>@&lt;!-- --&gt;sigstore/core</code> uses Node.js <code>'ascii'</code> encoding when converting the PAE (Pre-Authentication Encoding) string to bytes. This allows <code>payloadType</code> to be mutated after signing without invalidating the signature, breaking the type-binding guarantee that DSSE is designed to provide.</p>
+<p>In <code>packages/core/src/dsse.ts</code>, the PAE function builds a string containing <code>payloadType</code> and then encodes it with <code>Buffer.from(prefix, 'ascii')</code>.</p>
+<p>In Node.js, <code>'ascii'</code> encoding for string-to-Buffer is equivalent to <code>'latin1'</code>, which <strong>truncates characters above U+00FF to their low byte</strong>. This means for any ASCII character, there exist Unicode characters (at U+01xx, U+02xx, etc.) that produce the identical encoded byte:</p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>Codepoint</th>
+<th>Mutant</th>
+<th>Codepoint</th>
+<th>Encoded byte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t</code></td>
+<td>U+0074</td>
+<td><code>Ŵ</code></td>
+<td>U+0174</td>
+<td><code>0x74</code></td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>U+0065</td>
+<td><code>ť</code></td>
+<td>U+0165</td>
+<td><code>0x65</code></td>
+</tr>
+</tbody>
+</table>
+<p>An attacker can substitute every character in <code>payloadType</code> with a Unicode variant whose low byte matches, producing <strong>identical PAE bytes</strong> and a passing signature verification.</p>
+<p>Additionally, <code>payloadType.length</code> returns the JavaScript string length (UTF-16 code units) rather than the UTF-8 byte length required by the DSSE spec, though this is only a contributing factor for non-ASCII types.</p>
+<h4>Reproduction</h4>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> preAuthEncoding <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@&lt;!-- --&gt;sigstore/core/dist/dsse.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-const">const</span> payload <span class="token operator">=</span> <span class="token maybe-class-name">Buffer</span><span class="token punctuation">.</span><span class="token keyword module keyword-from">from</span><span class="token punctuation">(</span><span class="token string">'hello world'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> original <span class="token operator">=</span> <span class="token function">preAuthEncoding</span><span class="token punctuation">(</span><span class="token string">'text/plain'</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// U+01xx chars whose low bytes match the original ASCII chars</span>
+<span class="token keyword keyword-const">const</span> mutant <span class="token operator">=</span> <span class="token function">preAuthEncoding</span><span class="token punctuation">(</span><span class="token string">'\u0174\u0165\u0178\u0174/\u0170\u016c\u0161\u0169\u016e'</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'PAE bytes equal:'</span><span class="token punctuation">,</span> original<span class="token punctuation">.</span><span class="token method function property-access">equals</span><span class="token punctuation">(</span>mutant<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true — should be false</span>
+</code></pre></blockquote>
+</details>
+</details></td></tr>
+<tr><td valign="top">
+<details><summary><img alt="critical: 0" src="./audit-initial-cves_files/C-0-lightgrey"> <img alt="high: 0" src="./audit-initial-cves_files/H-0-lightgrey"> <img alt="medium: 0" src="./audit-initial-cves_files/M-0-lightgrey"> <img alt="low: 0" src="./audit-initial-cves_files/L-0-lightgrey"> <img alt="unspecified: 5" src="./audit-initial-cves_files/U-5-lightgrey"><strong>openssl</strong> <code>3.5.9-r0</code> (apk)</summary>
+<p><small><code>pkg:apk/alpine/openssl@3.5.9-r0?os_name=alpine&amp;os_version=3.24</code></small><br><br>
+<a href="https://scout.docker.com/v/CVE-2026-95692?s=alpine&amp;n=openssl&amp;ns=alpine&amp;t=apk&amp;osn=alpine&amp;osv=3.24&amp;vr=%3C3.5.9-r1"><img alt="unspecified : CVE--2026--95692" src="./audit-initial-cves_files/CVE--2026--95692-lightgrey"></a></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;3.5.9-r1</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.5.9-r1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.211%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>11th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-95691?s=alpine&amp;n=openssl&amp;ns=alpine&amp;t=apk&amp;osn=alpine&amp;osv=3.24&amp;vr=%3C3.5.9-r1"><img alt="unspecified : CVE--2026--95691" src="./audit-initial-cves_files/CVE--2026--95691-lightgrey"></a></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;3.5.9-r1</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.5.9-r1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.190%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-88823?s=alpine&amp;n=openssl&amp;ns=alpine&amp;t=apk&amp;osn=alpine&amp;osv=3.24&amp;vr=%3C3.5.9-r1"><img alt="unspecified : CVE--2026--88823" src="./audit-initial-cves_files/CVE--2026--88823-lightgrey"></a></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;3.5.9-r1</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.5.9-r1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.142%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>4th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-88822?s=alpine&amp;n=openssl&amp;ns=alpine&amp;t=apk&amp;osn=alpine&amp;osv=3.24&amp;vr=%3C3.5.9-r1"><img alt="unspecified : CVE--2026--88822" src="./audit-initial-cves_files/CVE--2026--88822-lightgrey"></a></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;3.5.9-r1</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.5.9-r1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.190%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>9th percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+</blockquote>
+</details>
+<p><a href="https://scout.docker.com/v/CVE-2026-107496?s=alpine&amp;n=openssl&amp;ns=alpine&amp;t=apk&amp;osn=alpine&amp;osv=3.24&amp;vr=%3C3.5.9-r1"><img alt="unspecified : CVE--2026--107496" src="./audit-initial-cves_files/CVE--2026--107496-lightgrey"></a></p>
+<table>
+<tbody><tr><td>Affected range</td><td><code>&lt;3.5.9-r1</code></td></tr>
+<tr><td>Fixed version</td><td><code>3.5.9-r1</code></td></tr>
+<tr><td>EPSS Score</td><td><code>0.127%</code></td></tr>
+<tr><td>EPSS Percentile</td><td><code>2nd percentile</code></td></tr>
+</tbody></table>
+<details><summary>Description</summary>
+<blockquote>
+</blockquote>
+</details>
+</details></td></tr>
+</tbody></table>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  </body></html>
