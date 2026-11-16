@@ -1,0 +1,20 @@
+services:
+  drupal:
+    container_name: drupal
+    image: drupal:10-apache
+    ports:
+      - 8081:80
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+      - /var/www/html/sites
+    restart: always
+    depends_on:
+      - db
+  db:
+    container_name: postgre
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD : drupal
+    restart: always
