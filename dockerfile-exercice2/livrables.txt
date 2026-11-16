@@ -1,0 +1,11 @@
+- Pour construire les images j'ai utilisé la commande 
+docker build -t quiz-docker:<initial ou secure> .
+
+- Pour tag les images j'ai utilisé la commande
+docker image tag quiz-docker:<initial ou secure> childew/quiz-docker:<initial ou secure>
+
+- Pour le mettre sur mon registry
+docker push childew/quiz-docker:<initial ou secure>
+
+- Pour lancer les conteneurs de façon moins lourde
+docker container run -d -p 8080:3000 --name quiz-docker-secure --memory="256m" --cpus="0.5" --security-opt no-new-privileges:true --cap-drop ALL quiz-docker:secure
