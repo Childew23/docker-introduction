@@ -1,0 +1,12 @@
+Mission 1
+- L'image n'est pas adaptée en production
+- La commande npm et les package.json avec les fichiers/dossiers du projet
+- Plusieurs erreurs dont une erreur critique à cause d'un package
+- Changer d'image, restreindre les droits d'utilisateurs (ne pas lancez en tant que root), utiliser un .dockerignore
+
+Mission 3
+- Le fait que j'ai changé d'image et le fait que j'utilise un profil utilisateur node
+- Elle a augmenté elle a plus de paquets je suis passé d'une image node-alpine à une image node-slim
+- Le multi stage et la restriction des permissions en utilisant un nouvel utilisateur concerne le Dockerfile et ce qui concerne le conteneur c'est quand on le lance en limitant les ressources à l'aide de pleins d'options tel que --memory, --cpus, --security-opt no-new-privileges:true, --cap-drop.
+- Elle est pas infaillible il reste quand même des erreurs mais j'ai pu éviter l'erreur critique en me basant sur l'image slim
+- Des vérifications à chaque intégrations que ça soit au niveau du formattage et un audit à chaque intégration pour vérifier régulièrement si il n'y a pas de failles
